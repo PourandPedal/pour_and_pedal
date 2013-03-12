@@ -5,6 +5,7 @@ gem 'rails', '3.2.12'
 gem 'pg'
 
 gem 'bootstrap-sass'
+gem 'cancan'
 gem 'hashrocket-rails'
 gem 'jquery-rails'
 gem 'rails_admin'
