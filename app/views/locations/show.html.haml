@@ -1,2 +1,7 @@
-%h1 Locations#show
-%p Find me in app/views/locations/show.html.haml
+%h1
+  = location.name
+%p
+  - location.photos.each do |photo|
+    = image_tag photo.photo.medium, class: 'img-polaroid'
+%p
+  = location.description
