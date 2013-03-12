@@ -1,0 +1,11 @@
+%h1
+  Frequently Asked Questions
+#accordion2.accordion
+  - @faqs.each do |faq|
+    .accordion-group
+      .accordion-heading
+        %a.accordion-toggle{"data-parent" => "#accordion2", "data-toggle" => "collapse", :href => "#collapseOne"}
+          = faq.question
+      #collapseOne.accordion-body.collapse
+        .accordion-inner
+          = faq.answer

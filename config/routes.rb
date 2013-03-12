@@ -9,6 +9,8 @@ Pourpedal::Application.routes.draw do
   resources :users
   resources :sessions
 
+  match 'faq', to: 'pages#faqs', as: :faq
+  match 'about', to: 'pages#about', as: :about
   match '/ui(/:action)', controller: 'ui'
 
   root to: 'pages#index'
