@@ -6,6 +6,8 @@
       = link_to location.name, location_path(location)
     %li
       - location.photos.each do |photo|
-        = image_tag photo.photo.medium, class: 'img-polaroid'
+        - if photo.is_primary?
+          = image_tag photo.photo.medium, class: 'img-polaroid'
+        - else
     %li
       = location.description
