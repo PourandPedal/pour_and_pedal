@@ -1,0 +1,10 @@
+%h1
+  = event.title
+%p
+  = event.description
+%p
+  = number_to_currency(event.price)
+%p
+  There are #{event.spots_available} spots still available for this trip!
+= link_to "Book Now", '#', class: 'btn btn-success'
+%hr

@@ -1,0 +1,11 @@
+%h1
+  Our Locations
+%ul
+  - locations.each do |location|
+    %li
+      = link_to location.name, location_path(location)
+    %li
+      - location.photos.each do |photo|
+        = image_tag photo.photo.medium, class: 'img-polaroid'
+    %li
+      = location.description

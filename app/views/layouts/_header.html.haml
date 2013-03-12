@@ -4,8 +4,14 @@
       = link_to "Pour and Pedal", root_path, class: "brand"
       %nav
         %ul.nav.pull-right
-          %li= link_to "About", about_path
-          %li= link_to "Faqs", faq_path
+          %li
+            = link_to "About", about_path
+          %li
+            = link_to "Faqs", faq_path
+          %li
+            = link_to "Events", events_path
+          %li
+            = link_to "Locations", locations_path
           - if logged_in?
             - if current_user.admin?
               %li

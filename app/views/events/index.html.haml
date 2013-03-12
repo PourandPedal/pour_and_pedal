@@ -1,0 +1,14 @@
+%h1
+  Our Events
+%ul
+  - events.each do |event|
+    %li
+      = link_to event.title, event_path(event)
+    %li
+      = event.description
+    %li
+      = number_to_currency(event.price)
+    %p
+      There are #{event.spots_available} spots still available for this trip!
+    = link_to "Book Now", '#', class: 'btn btn-success'
+    %hr

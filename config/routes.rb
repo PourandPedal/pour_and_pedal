@@ -8,6 +8,8 @@ Pourpedal::Application.routes.draw do
 
   resources :users
   resources :sessions
+  resources :locations
+  resources :events
 
   match 'faq', to: 'pages#faqs', as: :faq
   match 'about', to: 'pages#about', as: :about
