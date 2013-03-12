@@ -1,0 +1,24 @@
+development:
+  adapter: postgresql
+  database: pourpedal_development
+  username:
+  password:
+  host: localhost
+
+test: &TEST
+  adapter: postgresql
+  database: pourpedal_test
+  username:
+  password:
+  host: localhost
+  min_messages: warning
+
+production:
+  adapter: postgresql
+  database: pourpedal_production
+  username:
+  password:
+  host: localhost
+
+cucumber:
+  <<: *TEST
