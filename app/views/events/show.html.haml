@@ -6,5 +6,30 @@
   = number_to_currency(event.price)
 %p
   There are #{event.spots_available} spots still available for this trip!
-= link_to "Book Now", '#', class: 'btn btn-success'
-%hr
+- if current_user
+  - if event.spots_available != 0
+    = form_tag '/charge', method: 'POST' do
+      = hidden_field_tag :event_id, event.id
+      = submit_tag 'Book now', class: 'btn btn-success'
+  - else
+    = link_to "Get on the waiting list", '#', class: 'btn btn-success'
+- else
+  %a.btn{"data-toggle" => "modal", :href => "#myModal", :role => "button"} Book this trip
+  #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+      %h3#myModalLabel Sign up
+    .modal-body
+      %p In order to communicate with you about your trip we need you to provide
+      an email and password. This will never be shared.
+      %p Been with us before? #{link_to "Sign in", login_path}
+    .modal-footer
+      %button.btn.btn-primary Submit
+
+
+/ = link_to "Book Now", '#', class: 'btn btn-success'
+/ %hr
+
+/ %form{:action => "/authorizer", :method => "post"}
+/     %input{:autofocus => "", :name => "[secret_code]", :type => "text"}
+/       %br/
