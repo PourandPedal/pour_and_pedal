@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'mini_magick'
 gem 'rails_admin'
 gem 'sorcery'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'thin'
 
 group :assets do
