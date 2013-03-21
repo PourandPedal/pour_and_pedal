@@ -28,5 +28,6 @@ group :development, :test do
   # gem 'launchy'
   gem 'pry-debugger'
   gem 'pry-rails'
+  gem 'rails-erd'
   # gem 'rspec-rails', '~> 2.0'
 end
