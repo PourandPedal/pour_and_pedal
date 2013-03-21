@@ -8,7 +8,9 @@
       = event.description
     %li
       = number_to_currency(event.price)
-    %p
-      There are #{event.spots_available} spots still available for this trip!
-    = link_to "Book Now", '#', class: 'btn btn-success'
+    - if event.spots_available > 0
+      %p
+        There are #{event.spots_available} spots still available for this trip!
+    - else
+      %p This trip is sold out!
     %hr

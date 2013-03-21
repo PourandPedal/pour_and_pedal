@@ -1,10 +1,33 @@
 %h1
   = event.title
+%h2
+  = event.date.to_formatted_s(:long_ordinal)
 %p
   = event.description
 %p
-  = number_to_currency(event.price)
-%p
-  There are #{event.spots_available} spots still available for this trip!
-= link_to "Book Now", '#', class: 'btn btn-success'
-%hr
+  #{number_to_currency(event.price)} per ticket
+- if event.spots_available > 0
+  %p
+    There are #{event.spots_available} spots still available for this trip!
+  %p
+    = form_tag '/reservations' do
+      = label_tag "Number of tickets"
+      = select_tag :quantity, options_for_select(1..event.spots_available)
+      = hidden_field_tag :event_id, event.id
+      = label_tag "Email"
+      = email_field_tag :email
+      = label_tag "Phone"
+      = telephone_field_tag :phone
+      = label_tag "First name"
+      = text_field_tag :first_name
+      = label_tag "Last name"
+      = text_field_tag :last_name
+      = label_tag "Zip/Postal Code"
+      = text_field_tag :zipcode
+      %hr
+      = submit_tag "Book Now", class: 'btn btn-success'
+- else
+  %p
+    We're sorry, this trip is sold out! How about looking at our other trips?
+  %p
+    = link_to "Find more trips", events_path
