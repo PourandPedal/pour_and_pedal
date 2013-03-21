@@ -1,0 +1,34 @@
+Congratulations! You're reserved for #{@event.title}! We're so happy that you'll be coming along.
+
+Be sure to take note of the following, especially your confirmation number. If you need to make changes, cancel or inquire about your reservation, you'll need your email address as well as the confirmation number.
+
+%h2 Reservation Summary
+
+%p
+  Confirmation Number: #{@newclient.confirmation.confirmation_number}
+%p
+  Email: #{@newclient.email}
+
+%ul
+  %li
+    #{@newclient.first_name} #{@newclient.last_name}
+  %li
+    = @event.title
+  %li
+    = @event.date.to_formatted_s(:long_ordinal)
+  %li
+    #{pluralize(@quantity, 'ticket')}
+  %li
+    Total amount paid #{number_to_currency(@newclient.amount_paid)}
+  %li
+    = @event.location
+  %li
+    Directions:
+    %p
+      = @event.directions
+  %hr
+
+%p
+  Let your friends know you're going!
+  = link_to "Share on Facebook", '#'
+  = link_to "Share on Twitter", '#'

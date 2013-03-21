@@ -10,6 +10,8 @@ Pourpedal::Application.routes.draw do
   resources :sessions
   resources :locations
   resources :events
+  resources :charges
+  post '/reservations' => 'charges#new', as: :new_charge_path
 
   match 'faq', to: 'pages#faqs', as: :faq
   match 'about', to: 'pages#about', as: :about
