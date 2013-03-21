@@ -11,7 +11,35 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312205946) do
+ActiveRecord::Schema.define(:version => 20130321193803) do
+
+  create_table "clients", :force => true do |t|
+    t.string   "email"
+    t.string   "phone"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "zipcode"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "event_id"
+    t.decimal  "amount_paid"
+    t.datetime "date_paid"
+    t.string   "stripe_id"
+  end
+
+  create_table "confirmations", :force => true do |t|
+    t.string   "confirmation_number"
+    t.integer  "client_id"
+    t.boolean  "is_used"
+    t.boolean  "is_expired"
+    t.date     "expiration_date"
+    t.string   "source"
+    t.string   "created_by"
+    t.decimal  "value"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "event_id"
+  end
 
   create_table "events", :force => true do |t|
     t.datetime "date"
@@ -22,6 +50,8 @@ ActiveRecord::Schema.define(:version => 20130312205946) do
     t.datetime "updated_at",      :null => false
     t.integer  "spots_available"
     t.integer  "tickets_sold"
+    t.text     "directions"
+    t.integer  "location_id"
   end
 
   create_table "faqs", :force => true do |t|
@@ -58,6 +88,16 @@ ActiveRecord::Schema.define(:version => 20130312205946) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "sessions", :force => true do |t|
+    t.string   "session_id", :null => false
+    t.text     "data"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
+  add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
   create_table "users", :force => true do |t|
     t.string   "email"
