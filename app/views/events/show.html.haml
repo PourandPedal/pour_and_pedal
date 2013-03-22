@@ -1,7 +1,7 @@
 %h1.headline
   = event.title
 %h2
-  = event.date.to_formatted_s(:long_ordinal)
+  #{event.date.to_formatted_s(:month_day_and_year)} at #{event.date.to_formatted_s(:time_only)}
 - if event.spots_available > 0
   %p.spots
     There are #{event.spots_available} spots still available for this trip!
