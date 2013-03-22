@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130321193803) do
+ActiveRecord::Schema.define(:version => 20130322003439) do
 
   create_table "clients", :force => true do |t|
     t.string   "email"
@@ -19,12 +19,13 @@ ActiveRecord::Schema.define(:version => 20130321193803) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "zipcode"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
     t.integer  "event_id"
     t.decimal  "amount_paid"
     t.datetime "date_paid"
     t.string   "stripe_id"
+    t.integer  "tickets_purchased"
   end
 
   create_table "confirmations", :force => true do |t|
@@ -39,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20130321193803) do
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
     t.integer  "event_id"
+    t.boolean  "is_cancelled"
+    t.date     "redeemed_on"
   end
 
   create_table "events", :force => true do |t|
