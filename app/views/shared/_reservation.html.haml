@@ -1,0 +1,25 @@
+%h2 Reservation Summary
+%p
+  Confirmation Number: #{@confirmation.confirmation_number}
+%p
+  Email: #{@confirmation.client.email}
+
+%ul
+  %li
+    #{@confirmation.client.first_name} #{@confirmation.client.last_name}
+  %li
+    = @confirmation.event.title
+  %li
+    = @confirmation.event.date.to_formatted_s(:long_ordinal)
+  %li
+    #{pluralize(@confirmation.client.tickets_purchased, 'ticket')}
+  %li
+    Total amount paid #{number_to_currency(@confirmation.client.amount_paid)}
+  %li
+    = @confirmation.event.directions
+  %hr
+
+%p
+  Let your friends know you're going!
+  = link_to "Share on Facebook", '#'
+  = link_to "Share on Twitter", '#'
