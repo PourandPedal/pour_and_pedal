@@ -11,7 +11,12 @@ Pourpedal::Application.routes.draw do
   resources :locations
   resources :events
   resources :charges
+  resources :confirmations
+
   post '/reservations' => 'charges#new', as: :new_charge_path
+  post '/codes' => 'confirmations#show'
+  post '/redeem_code' => 'charges#redeem'
+  post '/confirm_booking' => 'charges#create_with_no_balance_due'
 
   match 'faq', to: 'pages#faqs', as: :faq
   match 'about', to: 'pages#about', as: :about
