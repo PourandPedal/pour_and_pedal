@@ -21,8 +21,6 @@
     #{number_to_currency(event.price)} per ticket
 .clearfix
 - if event.spots_available > 0
-  %p.spots
-    There are #{event.spots_available} spots still available for this trip!
   .span4
     %form.form-horizontal
       = form_tag '/reservations' do
