@@ -7,5 +7,17 @@
       %span
         Reserving #{pluralize(@quantity, 'ticket')} for #{@event.title} on #{@event.date.to_formatted_s(:long_ordinal)}
       %br
-        Amount: #{number_to_currency(@event.price * @quantity)}
-  %script.stripe-button{"data-amount" => @event.price * @quantity * 100, "data-description" => @event.title, "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/v2/checkout.js"}
+        - if session[:event_price]
+          Your code is worth #{number_to_currency(@redemption_code.value)} which leaves a remaining balance of
+          - if (@event.price * @quantity) > 0
+            #{number_to_currency(@event.price * @quantity)}.
+          - else
+            zero!
+        - else
+          Amount: #{number_to_currency(@event.price * @quantity)}
+  %p
+  - if @event.price * @quantity > 0
+    %script.stripe-button{"data-amount" => @event.price * @quantity * 100, "data-description" => @event.title, "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/v2/checkout.js"}
+  - else
+    = form_tag '/confirm_booking' do
+      = submit_tag "Confirm Booking", class: 'btn btn-success'
