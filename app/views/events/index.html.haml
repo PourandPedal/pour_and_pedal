@@ -1,16 +1,25 @@
-%h1
-  Our Events
+%h1.paddtop
+  our trips
 %ul
   - events.each do |event|
-    %li
-      = link_to event.title, event_path(event)
-    %li
-      = event.description
-    %li
-      = number_to_currency(event.price)
-    - if event.spots_available > 0
-      %p
-        There are #{event.spots_available} spots still available for this trip!
-    - else
-      %p This trip is sold out!
+    .span3.eventlisting
+      %h3
+        = link_to event.title, event_path(event)
+      %img
+        - event.photos.each do |photo|
+          - if photo.is_primary?
+            = image_tag photo.photo.medium, class: 'img-polaroid'
+    .span8
+      .eventdescription
+        %li
+          = truncate event.description, length: 500
+          = link_to 'read more', event
+        %li.pull-right.price
+          = number_to_currency(event.price)
+        - if event.spots_available > 0
+          %br
+          %p
+            There are #{event.spots_available} spots still available for this trip!
+        - else
+          %p This trip is sold out!
     %hr

@@ -1,6 +1,18 @@
 @import "bootstrap"
 
 /* universal */
+
+html, body
+  padding: 0
+  margin: 0
+  height: 100%
+#page
+  min-height: 100%
+  height: 100%
+  position: relative
+#main
+  padding-bottom: 150px
+
 html
   color: #3f3d32
 body
@@ -26,8 +38,18 @@ textarea
   h1
     margin-bottom: 10px
 
+
 .wine
   color: #6f123e
+
+.eventlisting
+  h3
+    font-family: 'Rokkitt', serif
+    font-weight: 400
+    font-style: normal
+    color: #3f3d32
+    text-align: center
+    margin-bottom: 0px
 
 .btn-danger
   background-color: #6f123e
@@ -60,6 +82,9 @@ textarea
 
 .description
   padding: 36px 0 9px 0
+
+.eventdescription
+  padding-top: 36px
 
 .price
   padding: 0 0 18px 0
@@ -116,15 +141,22 @@ small
   margin-top: 92px
 
 /* footer */
-footer
-  padding-right: 72px
+
+
+
+#footer
+  position: absolute
+  width: 100%
+  bottom: 0
+  height: 150px
   background-color: #6f123e
-  padding-bottom: 36px
-  border-bottom: 3px solid #6f123e
   margin-top: 36px
   padding-top: 18px
   border-top: 1px solid #eaeaea
+  ul
+    padding-right: 72px
   a
+    padding-right: 18px
     color: #FFF8DC
   a:hover
     color: #fff
