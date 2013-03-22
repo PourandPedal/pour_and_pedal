@@ -1,36 +1,57 @@
-%h1
+%h1.headline
   = event.title
 %h2
   = event.date.to_formatted_s(:long_ordinal)
-%p
-  = event.description
-%p
-  #{number_to_currency(event.price)} per ticket
 - if event.spots_available > 0
-  %p
+  %p.spots
     There are #{event.spots_available} spots still available for this trip!
-  %p
-    = form_tag '/reservations' do
-      = label_tag "Number of tickets"
-      = select_tag :quantity, options_for_select(1..event.spots_available)
-      = hidden_field_tag :event_id, event.id
-      = label_tag "Email"
-      = email_field_tag :email
-      = label_tag "Phone"
-      = telephone_field_tag :phone
-      = label_tag "First name"
-      = text_field_tag :first_name
-      = label_tag "Last name"
-      = text_field_tag :last_name
-      = label_tag "Zip/Postal Code"
-      = text_field_tag :zipcode
-      %hr
-      = label_tag "Redemption Code"
-      = text_field_tag :redemption_code
-      %hr
-      = submit_tag "Book Now", class: 'btn btn-success'
 - else
-  %p
+  %p.spots
     We're sorry, this trip is sold out! How about looking at our other trips?
-  %p
+  %p.spots
+    = link_to "Find more trips", events_path
+%img
+  - event.photos.each do |photo|
+    - if photo.is_primary?
+      = image_tag photo.photo.headline, class: 'img-polaroid'
+%p.description
+  = event.description
+.span9
+  %p.price
+    #{number_to_currency(event.price)} per ticket
+.clearfix
+- if event.spots_available > 0
+  %p.spots
+    There are #{event.spots_available} spots still available for this trip!
+  .span4
+    %form.form-horizontal
+      = form_tag '/reservations' do
+        .control-group
+        = label_tag "Number of tickets"
+        = select_tag :quantity, options_for_select(1..event.spots_available)
+        = hidden_field_tag :event_id, event.id
+        = label_tag "Email"
+        = email_field_tag :email
+        = label_tag "Phone"
+        = telephone_field_tag :phone
+        = label_tag "First name"
+        = text_field_tag :first_name
+        = label_tag "Last name"
+        = text_field_tag :last_name
+        = label_tag "Zip/Postal Code"
+        = text_field_tag :zipcode
+        = label_tag "Redemption Code"
+        = text_field_tag :redemption_code
+        %hr
+        .span4.center
+          = submit_tag "Book Now", class: 'btn btn-large btn-success'
+  .span5
+    %img.paddtop
+      - event.photos.each do |photo|
+        - unless photo.is_primary?
+          = image_tag photo.photo.large, class: 'img-polaroid'
+- else
+  %p.spots
+    We're sorry, this trip is sold out! How about looking at our other trips?
+  %p.spots
     = link_to "Find more trips", events_path

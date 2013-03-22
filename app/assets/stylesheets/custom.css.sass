@@ -2,7 +2,18 @@
 
 /* universal */
 html
+  color: #3f3d32
 body
+  h1
+    font-family: 'Rokkitt', serif
+    font-weight: 700
+    font-style: normal
+    color: #3f3d32
+  h2
+    font-family: 'Rokkitt', serif
+    font-weight: 400
+    font-style: normal
+    color: #3f3d32
   padding-top: 60px
   background-color: #FFF8DC
 section
@@ -20,15 +31,48 @@ textarea
 
 .btn-danger
   background-color: #6f123e
-
-#myModal
+  background-image: -moz-linear-gradient(top, #ee5f5b, #6f123e)
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#6f123e))
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #6f123e)
+  background-image: -o-linear-gradient(top, #ee5f5b, #6f123e)
+  background-image: linear-gradient(to bottom, #ee5f5b, #6f123e)
+  background-repeat: repeat-x
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEE5F5B', endColorstr='#FFBD362F', GradientType=0)
+  border-color: #bd362f #bd362f #802420
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25)
+  *background-color: #6f123e
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false)
 
 .hero-unit
   background-color: #FFF8DC
+  h1
+    font-size: 5em
+    line-height: .4
+    padding-bottom: 18px
+  h2
+    font-size: 2em
+    margin-bottom: 8px
+    text-align: left
+
+.headline
+  margin-top: 72px
+
+.description
+  padding: 36px 0 9px 0
+
+.price
+  padding: 0 0 18px 0
+  font-weight: bold
+  text-align: right
+
+.spots
+  text-align: center
+  font-weight: bold
+  font-size: 1em
+
 
 /* typography */
-h1, h2, h3, h4, h5, h6
-  line-height: 1
 h1
   font-size: 3em
   letter-spacing: -2px
@@ -37,7 +81,6 @@ h1
 h2
   font-size: 1.7em
   letter-spacing: -1px
-  margin-bottom: 30px
   text-align: center
   font-weight: normal
   color: #999
@@ -65,15 +108,26 @@ p
   -webkit-box-shadow: 0px 3px 5px #6f123e
   box-shadow: 0px 3px 5px #6f123e
 
+small
+  margin-left: 72px
+  color: #FFF8DC
+
+.paddtop
+  margin-top: 92px
+
 /* footer */
 footer
-  margin-top: 45px
-  padding-top: 5px
+  padding-right: 72px
+  background-color: #6f123e
+  padding-bottom: 36px
+  border-bottom: 3px solid #6f123e
+  margin-top: 36px
+  padding-top: 18px
   border-top: 1px solid #eaeaea
   a
-    color: #555
+    color: #FFF8DC
   a:hover
-    color: #222
+    color: #fff
   small
     float: left
   ul
