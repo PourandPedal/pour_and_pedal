@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130322184153) do
+ActiveRecord::Schema.define(:version => 20130323164329) do
 
   create_table "clients", :force => true do |t|
     t.string   "email"
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(:version => 20130322184153) do
     t.integer  "event_id"
     t.boolean  "is_cancelled"
     t.date     "redeemed_on"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "phone"
+    t.text     "message"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "events", :force => true do |t|
