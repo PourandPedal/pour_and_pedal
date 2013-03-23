@@ -88,6 +88,7 @@ class ChargesController < ApplicationController
       client_id: @newclient.id, is_used: false, is_expired: false, source: "Website",
       created_by: "Client", value: @newclient.amount_paid, event_id: @event.id)
 
+    @event.tickets_sold = 0 unless @event.tickets_sold
     @event.update_attributes(tickets_sold: (@event.tickets_sold + @quantity))
     @event.update_attributes(spots_available: (@event.spots_available -
                               @quantity))
