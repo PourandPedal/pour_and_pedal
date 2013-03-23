@@ -1,3 +1,5 @@
+%p.pull-right.goback
+  = link_to "back to event listings", events_path
 %h1.headline
   = event.title
 %h2
@@ -42,7 +44,7 @@
         = text_field_tag :redemption_code
         %hr
         .span4.center
-          = submit_tag "Book Now", class: 'btn btn-large btn-success'
+          = submit_tag "book now", class: 'btn btn-large btn-success'
   .span5
     %img.paddtop
       - event.photos.each do |photo|
@@ -52,4 +54,4 @@
   %p.spots
     We're sorry, this trip is sold out! How about looking at our other trips?
   %p.spots
-    = link_to "Find more trips", events_path
+    = link_to "find more trips", events_path
