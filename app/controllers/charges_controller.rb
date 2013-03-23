@@ -9,7 +9,7 @@ class ChargesController < ApplicationController
     @redemption_code = Confirmation.find_by_confirmation_number(params[:redemption_code])
     session[:event_price] = (@event.price - @redemption_code.value) unless
       (@redemption_code.blank? || @redemption_code.is_expired?)
-    if @redemption_code.is_expired?
+    if @redemption_code && @redemption_code.is_expired?
       session[:redemption_code_expired] = true
     else
       session[:redemption_code_expired] = nil
@@ -19,10 +19,10 @@ class ChargesController < ApplicationController
   end
 
   def create
-    if session[:event_price] <= 0
+    if session[:event_price] && session[:event_price] <= 0
       create_with_no_balance_due
     else
-      if session[:event_price]
+      if session[:event_price] && session[:event_price]
         @event.price = session[:event_price]
       else
       end
@@ -58,7 +58,7 @@ class ChargesController < ApplicationController
       Confirmation.create!(confirmation_number: @confirmation_number,
         client_id: @newclient.id, is_used: false, is_expired: false, source: "Website",
         created_by: "Client", value: @newclient.amount_paid, event_id: @event.id)
-
+      @event.tickets_sold = 0 unless @event.tickets_sold
       @event.update_attributes(tickets_sold: (@event.tickets_sold + @quantity))
       @event.update_attributes(spots_available: (@event.spots_available -
                                 @quantity))
