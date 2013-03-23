@@ -10,11 +10,11 @@ Pourpedal::Application.routes.draw do
   resources :users
   resources :sessions
   resources :locations
-  resources :events
   resources :charges
+  resources :events
   resources :confirmations
 
-  post '/reservations' => 'charges#new', as: :new_charge_path
+  post '/reserve' => 'charges#new', as: :new_charge_path
   post '/codes' => 'confirmations#show'
   post '/redeem_code' => 'charges#redeem'
   post '/confirm_booking' => 'charges#create_with_no_balance_due'
