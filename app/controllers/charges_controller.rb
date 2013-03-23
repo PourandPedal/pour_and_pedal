@@ -7,7 +7,13 @@ class ChargesController < ApplicationController
     new_client
     session[:event] = @event
     @redemption_code = Confirmation.find_by_confirmation_number(params[:redemption_code])
-    session[:event_price] = (@event.price - @redemption_code.value) unless @redemption_code.blank?
+    session[:event_price] = (@event.price - @redemption_code.value) unless
+      (@redemption_code.blank? || @redemption_code.is_expired?)
+    if @redemption_code.is_expired?
+      session[:redemption_code_expired] = true
+    else
+      session[:redemption_code_expired] = nil
+    end
     @event.price = session[:event_price] unless @redemption_code.blank?
     session[:redemption_code] = @redemption_code
   end

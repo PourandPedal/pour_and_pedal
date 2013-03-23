@@ -7,6 +7,8 @@
       %span
         Reserving #{pluralize(@quantity, 'ticket')} for #{@event.title} on #{@event.date.to_formatted_s(:long_ordinal)}
       %br
+        - if session[:redemption_code_expired]
+          We're sorry, but your redemption code is expired.
         - if session[:event_price]
           Your code is worth #{number_to_currency(@redemption_code.value)} which leaves a remaining balance of
           - if (@event.price * @quantity) > 0
