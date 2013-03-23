@@ -24,32 +24,31 @@
 .clearfix
 - if event.spots_available > 0
   .span4
-    %form.form-horizontal
-      = form_tag '/reservations' do
-        .control-group
-        = label_tag "Number of tickets"
-        = select_tag :quantity, options_for_select(1..event.spots_available)
-        = hidden_field_tag :event_id, event.id
-        = label_tag "Email"
-        = email_field_tag :email
-        = label_tag "Phone"
-        = telephone_field_tag :phone
-        = label_tag "First name"
-        = text_field_tag :first_name
-        = label_tag "Last name"
-        = text_field_tag :last_name
-        = label_tag "Zip/Postal Code"
-        = text_field_tag :zipcode
-        = label_tag "Redemption Code"
-        = text_field_tag :redemption_code
-        %hr
-        .span4.center
-          = submit_tag "book now", class: 'btn btn-large btn-success'
-  .span5
-    %img.paddtop
-      - event.photos.each do |photo|
-        - unless photo.is_primary?
-          = image_tag photo.photo.large, class: 'img-polaroid'
+    %a.btn.btn-large.btn-danger{"data-toggle" => "modal", :href => "#bookingform", :role => "button"} reserve your spot now
+
+    #bookingform.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+        %h3#bookingform
+          = event.title
+      .modal-body
+        = form_tag '/reserve' do
+          = label_tag "Number of tickets"
+          = select_tag :quantity, options_for_select(1..event.spots_available)
+          = hidden_field_tag :event_id, event.id
+          = label_tag "Email"
+          = email_field_tag :email
+          = label_tag "Phone"
+          = telephone_field_tag :phone
+          = label_tag "First name"
+          = text_field_tag :first_name
+          = label_tag "Last name"
+          = text_field_tag :last_name
+          = label_tag "Zip/Postal Code"
+          = text_field_tag :zipcode
+          = label_tag "Redemption Code"
+          = text_field_tag :redemption_code
+          = submit_tag "book now", class: 'btn btn-large btn-danger'
 - else
   %p.spots
     We're sorry, this trip is sold out! How about looking at our other trips?
