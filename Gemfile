@@ -15,6 +15,7 @@ gem 'rails_admin'
 gem 'sorcery'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'thin'
+gem 'turbolinks'
 gem 'whenever', :require => false
 
 group :assets do
