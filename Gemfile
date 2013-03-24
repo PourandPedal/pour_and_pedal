@@ -28,6 +28,7 @@ group :development, :test do
   # gem 'database_cleaner'
   # gem 'faker'
   # gem 'launchy'
+  gem 'mailcatcher'
   gem 'pry-debugger'
   gem 'pry-rails'
   gem 'rails-erd'
