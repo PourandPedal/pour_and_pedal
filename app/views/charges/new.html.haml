@@ -25,7 +25,13 @@
   %p
   - if session[:event_price] * @quantity > 0
     %script.stripe-button{"data-amount" => session[:event_price] * @quantity * 100, "data-description" => @event.title, "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/v2/checkout.js"}
+    = link_to 'cancel', event_path(@event)
   - else
     = form_tag '/confirm_booking' do
       = submit_tag "Confirm Booking", class: 'btn btn-success'
-    = link_to 'go back', event_path(@event)
+    = link_to 'cancel', event_path(@event)
+  %hr
+  %img
+    - @event.photos.each do |photo|
+      - if photo.is_primary?
+        = image_tag photo.photo.headline, class: 'img-polaroid'
