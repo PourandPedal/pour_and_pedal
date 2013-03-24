@@ -1,23 +1,42 @@
 class ChargesController < ApplicationController
 
   def new
+    session[:code_not_found] = nil
     @event = Event.find(params[:event_id])
     @quantity = params[:quantity].to_i
     session[:quantity] = @quantity
     new_client
-    session[:event] = @event
+    session[:event] = @event.id
 
     if !params[:redemption_code].blank?
       @redemption_code = Confirmation.find_by_confirmation_number(params[:redemption_code])
-      set_event_price_with_code if @redemption_code
-      session[:redemption_code] = @redemption_code
+      if @redemption_code
+        check_redemption_code_validity(@redemption_code)
+        set_event_price_with_code
+        session[:redemption_code] = @redemption_code.id
+      else
+        session[:code_not_found] = true
+        session[:event_price] = @event.price
+      end
     else
       session[:event_price] = @event.price
     end
   end
 
   def set_event_price_with_code
-    session[:event_price] = (@event.price - @redemption_code.value) unless @redemption_code.is_expired?
+    if @redemption_code.is_expired?
+      session[:event_price] = @event.price
+    else
+      session[:event_price] = (@event.price - @redemption_code.value)
+    end
+  end
+
+  def check_redemption_code_validity(redemption_code)
+    if redemption_code.expiration_date < Date.today
+      redemption_code.is_expired = true
+      redemption_code.save
+    else
+    end
   end
 
   def create
@@ -26,7 +45,7 @@ class ChargesController < ApplicationController
     else
       @this_event_price = session[:event_price]
       @newclient = session[:new_client]
-      @event = session[:event]
+      @event = Event.find(session[:event])
       @quantity = session[:quantity]
 
       # Amount in cents
@@ -73,7 +92,7 @@ class ChargesController < ApplicationController
 
   def create_with_no_balance_due
     @newclient = session[:new_client]
-    @event = session[:event]
+    @event = Event.find(session[:event])
     @quantity = session[:quantity]
 
     @newclient.stripe_id = 'none'
@@ -92,8 +111,7 @@ class ChargesController < ApplicationController
     @event.update_attributes(tickets_sold: (@event.tickets_sold + @quantity))
     @event.update_attributes(spots_available: (@event.spots_available -
                               @quantity))
-    redemption_code = session[:redemption_code].confirmation_number
-    used_code = Confirmation.find_by_confirmation_number(redemption_code)
+    used_code = Confirmation.find(session[:redemption_code])
     used_code.is_used = true
     used_code.redeemed_on = Date.today
     used_code.client_id = @newclient.id
