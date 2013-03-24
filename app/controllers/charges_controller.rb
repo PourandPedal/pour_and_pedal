@@ -24,7 +24,7 @@ class ChargesController < ApplicationController
   end
 
   def set_event_price_with_code
-    if @redemption_code.is_expired?
+    if @redemption_code.is_expired? || @redemption_code.is_used? || @redemption_code.is_cancelled?
       session[:event_price] = @event.price
     else
       session[:event_price] = (@event.price - @redemption_code.value)
