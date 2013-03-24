@@ -3,33 +3,17 @@
 %h2
   for special group rates and reservations, please call 646-258-0112
 %hr
-.span6
+.span4
   %form.form-horizontal
   = form_for contact do |f|
-    .control-group
-      .control-label
-        = f.label :first_name
-      .controls
-        = f.text_field :first_name
-    .control-group
-      .control-label
-        = f.label :last_name
-      .controls
-        = f.text_field :last_name
-    .control-group
-      .control-label
-        = f.label :email
-      .controls
-        = f.email_field :email
-    .control-group
-      .control-label
-        = f.label :phone
-      .controls
-        = f.telephone_field :phone
-    .control-group
-      .control-label
-        = f.label :message, "Your message"
-      .controls
-        = f.text_area :message, cols: 20, rows: 10
-    .controls
-      = f.submit "send message", class: 'btn btn-large btn-success'
+    = f.label :first_name
+    = f.text_field :first_name
+    = f.label :last_name
+    = f.text_field :last_name
+    = f.label :email
+    = f.email_field :email
+    = f.label :phone
+    = f.telephone_field :phone
+    = f.label :message, "Your message"
+    = f.text_area :message, cols: 20, rows: 10
+    = f.submit "send message", class: 'btn btn-large btn-success'
