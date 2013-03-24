@@ -1,13 +1,17 @@
-%h1.paddtop
+%h1.headline
   our locations
 %ul
   - locations.each do |location|
-    %li
-      = link_to location.name, location_path(location)
-    %li
-      - location.photos.each do |photo|
-        - if photo.is_primary?
-          = image_tag photo.photo.medium, class: 'img-polaroid'
-        - else
-    %li
-      = location.description
+    %h2.headline
+      = link_to location.name, location
+    .span3.eventlisting
+      %img
+        - location.photos.each do |photo|
+          - if photo.is_primary?
+            = image_tag photo.photo.medium, class: 'img-polaroid'
+    .span8
+      .eventdescription
+        %li
+          = truncate location.description, length: 1000
+          = link_to 'read more', location
+    %hr

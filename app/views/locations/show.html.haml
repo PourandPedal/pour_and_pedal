@@ -1,7 +1,32 @@
-%h1
+%h1.headline
   = location.name
 %p
   - location.photos.each do |photo|
-    = image_tag photo.photo.medium, class: 'img-polaroid'
+    = image_tag photo.photo.headline, class: 'img-polaroid'
 %p
   = location.description
+%h2
+  upcoming events
+- location_events(location)
+- @events.each do |event|
+  .span3.eventlisting
+    %h3
+      = link_to event.title, event
+    %img
+      - event.photos.each do |photo|
+        - if photo.is_primary?
+          = link_to (image_tag photo.photo.medium, class: 'img-polaroid'), event_path(event)
+  .span8
+    .eventdescription
+      %li
+        = truncate event.description, length: 500
+        = link_to 'read more', event
+      %li.pull-right.price
+        = number_to_currency(event.price)
+      - if event.spots_available > 0
+        %br
+        %p
+          There are #{event.spots_available} spots still available for this trip!
+      - else
+        %p This trip is sold out!
+  %hr
