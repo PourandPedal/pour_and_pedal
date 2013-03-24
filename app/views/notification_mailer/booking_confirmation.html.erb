@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Get ready! You're confirmed for <%= @event.title %>!</h1>
+    <p>
+      We're so happy that you'll be coming along! Here's a summary of your booking.
+    <ul><li> <%= @event.title %></li><li><%= @event.date.to_formatted_s(:long_ordinal) %></li><li>Confirmation Number: <%= @user.confirmation.confirmation_number %></li><li><%= pluralize(@user.tickets_purchased, 'ticket') %></li><li><%= number_to_currency(@user.amount_paid) %></li>
+    </p>
+    <h2> Directions: </h2>
+    <p><%= @event.directions %></p>
+    <p> We can't wait to see you! </p>
+    <p>With love and affection,</p>
+    <p>pour & pedal</p>
+  </body>
+</html>

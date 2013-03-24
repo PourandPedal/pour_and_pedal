@@ -62,6 +62,8 @@ class ChargesController < ApplicationController
       @event.update_attributes(spots_available: (@event.spots_available -
                                 @quantity))
       session[:event_price] = nil
+      NotificationMailer.booking_notification(@event).deliver
+      NotificationMailer.booking_confirmation(@event, @newclient).deliver
     end
 
     rescue Stripe::CardError => e
@@ -97,6 +99,9 @@ class ChargesController < ApplicationController
     used_code.client_id = @newclient.id
     used_code.event_id = @event.id
     used_code.save
+
+    NotificationMailer.booking_notification(@event).deliver
+    NotificationMailer.booking_confirmation(@event, @newclient).deliver
 
     session[:event_price] = nil
 
