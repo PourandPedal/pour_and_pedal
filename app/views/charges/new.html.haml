@@ -7,6 +7,11 @@
       %span
         Reserving #{pluralize(@quantity, 'ticket')} for #{@event.title} on #{@event.date.to_formatted_s(:long_ordinal)}
       %br
+        - if session[:code_not_found]
+          %h2
+            We're sorry, but this code can't be found.
+          %p
+            #{link_to "Go back and try again", event_path(@event)} or continue with booking this trip.
         - if @redemption_code
           - if @redemption_code.is_used?
             %h2
@@ -23,7 +28,7 @@
         - else
           Amount: #{number_to_currency(session[:event_price] * @quantity)}
   %p
-  - if session[:event_price] * @quantity > 0
+  - if session[:event_price] && session[:event_price] * @quantity > 0
     %script.stripe-button{"data-amount" => session[:event_price] * @quantity * 100, "data-description" => @event.title, "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/v2/checkout.js"}
     = link_to 'cancel', event_path(@event)
   - else
