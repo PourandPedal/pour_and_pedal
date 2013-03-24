@@ -4,11 +4,11 @@
   - events.each do |event|
     .span3.eventlisting
       %h3
-        = link_to event.title, event_path(event)
+        = link_to event.title, event
       %img
         - event.photos.each do |photo|
           - if photo.is_primary?
-            = image_tag photo.photo.medium, class: 'img-polaroid'
+            = link_to (image_tag photo.photo.medium, class: 'img-polaroid'), event_path(event)
     .span8
       .eventdescription
         %li
