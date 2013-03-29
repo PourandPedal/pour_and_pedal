@@ -5,50 +5,69 @@
   .span9
     %h1
       pour & pedal
-    %h2.pull-right
-      wine. bicycling. fun.
-  .span12.landingimages
-  .span3
-    %img.img-polaroid{:src => "http://placehold.it/300x300&text=coming soon"}
-  .span3
-    %img.img-polaroid{:src => "http://placehold.it/300x300&text=coming soon"}
-  .span3
-    %img.img-polaroid{:src => "http://placehold.it/300x300&text=coming soon"}
+#myCarousel.carousel.slide
+  %ol.carousel-indicators
+    %li.active{"data-slide-to" => "0", "data-target" => "#myCarousel"}
+    %li{"data-slide-to" => "1", "data-target" => "#myCarousel"}
+    %li{"data-slide-to" => "2", "data-target" => "#myCarousel"}
+  / Carousel items
+  .carousel-inner
+    .active.item
+      %img
+        = image_tag('front-sliders.png', class: 'center')
+    .item
+      %img
+        = image_tag('vineyard.png', class: 'center')
+    .item
+      %img
+        = image_tag('howwine.png', class: 'center')
+  / Carousel nav
+  %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
+  %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
+#cta
+  = link_to "Find a ride now!", events_path, class: "mybtn btn btn-success"
+  / .span12.landingimages
+  / .span3
+  /   %img.img-polaroid{:src => "http://placehold.it/300x300&text=coming soon"}
+  / .span3
+  /   %img.img-polaroid{:src => "http://placehold.it/300x300&text=coming soon"}
+  / .span3
+  /   %img.img-polaroid{:src => "http://placehold.it/300x300&text=coming soon"}
 
-  .clearfix
-  %br
-  = link_to "Find a ride now!", events_path, class: "btn btn-large btn-danger"
+  / .clearfix
+  / %br
+  / = link_to "Find a ride now!", events_path, class: "btn btn-large btn-danger"
 
-  %hr
+  / %hr
 
-  .span9
-    %h3.pull-left
-      we'll show you a good time..
-    .clearfix
-    %h4
-      our tour guides will take you to the heart of the vineyard
-  .span12.landingimages
-  .span9
-    %img.img-polaroid{:src => "http://placehold.it/940x264&text=coming soon"}
+  / .span9
+  /   %h3.pull-left
+  /     we'll show you a good time..
+  /   .clearfix
+  /   %h4
+  /     our tour guides will take you to the heart of the vineyard
+  / .span12.landingimages
+  / .span9
+  /   %img.img-polaroid{:src => "http://placehold.it/940x264&text=coming soon"}
 
-  %hr
-  .span9
-    %h3.pull-left
-      learn how wine is made..
-    .clearfix
-    %h4
-      enjoy an inside look at the creation of the world's favorite drink
-  .span12.landingimages
-  .span9
-    %img.img-polaroid{:src => "http://placehold.it/940x264&text=coming soon"}
+  / %hr
+  / .span9
+  /   %h3.pull-left
+  /     learn how wine is made..
+  /   .clearfix
+  /   %h4
+  /     enjoy an inside look at the creation of the world's favorite drink
+  / .span12.landingimages
+  / .span9
+  /   %img.img-polaroid{:src => "http://placehold.it/940x264&text=coming soon"}
 
-  %hr
-  .span9
-    %h3.pull-left
-      what are you waiting for?
-    .clearfix
-    %h4
-      find the perfect tour now!
-    %br
-      = link_to "find a tour!", events_path, class: "btn btn-large btn-danger"
+  / %hr
+  / .span9
+  /   %h3.pull-left
+  /     what are you waiting for?
+  /   .clearfix
+  /   %h4
+  /     find the perfect tour now!
+  /   %br
+  /     = link_to "find a tour!", events_path, class: "btn btn-large btn-danger"
 

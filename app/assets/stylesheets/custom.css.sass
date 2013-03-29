@@ -54,16 +54,16 @@ body
     height: 12px
 
   padding-top: 60px
-  background-color: #FFF8DC
+  background: #FFF8DC url(wine-bike.png) bottom right no-repeat fixed
 section
   overflow: auto
 textarea
   resize: vertical
 .center
+  margin-left: auto
+  margin-right: auto
   text-align: center
-.center
-  h1
-    margin-bottom: 10px
+
 .smaller
   font-size: 1.3em
 
@@ -111,7 +111,22 @@ textarea
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false)
 
+#cta
+  margin-left: auto
+  margin-right: auto
+  width: 300px
+
+.mybtn
+  line-height: 1.5em
+  font-size: 2em
+  margin-left: auto
+  margin-right: auto
+  width: 300px
+  height: 50px
+  color: #FFF8DC
+
 .hero-unit
+  padding-top: 36px
   background-color: #FFF8DC
   h1
     font-size: 5em
@@ -140,6 +155,13 @@ textarea
   text-align: center
   font-weight: bold
   font-size: 1em
+
+.btn-success
+  background: url(green-go-button.png)
+  -moz-box-shadow: 2px 3px 5px #6f123e
+  -webkit-box-shadow: 2px 3px 5px #6f123e
+  box-shadow: 2px 3px 5px #6f123e
+
 
 
 /* typography */
@@ -186,26 +208,56 @@ small
 .paddtop
   margin-top: 92px
 
+.shortpadtop
+  margin-top: 36px
+
 /* footer */
 
-
+#wine-bottles
+  background: url(wine-bike.png) top right no-repeat
+  background-position:fixed
 
 footer
+  position: fixed
+  background: url('pour-pedal-footer.png')
   width: 100%
   bottom: 0
-  height: 75px
-  background-color: #6f123e
+  height: 100px
   margin-top: 36px
   ul
-    padding-top: 18px
+    padding-top: 46px
     padding-right: 72px
   a
-    padding-right: 18px
     color: #FFF8DC
+    border: .1em groove transparent
+    -moz-border-radius: 1.5em
+    -ms-border-radius: 1.5em
+    -o-border-radius: 1.5em
+    -webkit-border-radius: 1.5em
+    border-radius: 1.5em
+    font-size: 1.3em
+    padding: 6px 20px
+    text-transform: lowercase
+    -webkit-transition: all 0.4s ease
+    -moz-transition: all 0.4s ease
+    -o-transition: all 0.4s ease
+    transition: all 0.4s ease
+    vertical-align: middle
+    text-decoration: none
   a:hover
-    color: #fff
+    color: #a8708b
+    border: .1em solid #e5e5e5
+    background-color: #FFF8DC
+    background-image: -moz-linear-gradient(top, #ffffff, #FFF8DC)
+    background-image: -ms-linear-gradient(top, #ffffff, #FFF8DC)
+    background-image: -o-linear-gradient(top, #ffffff, #FFF8DC)
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#FFF8DC))
+    background-image: -webkit-linear-gradient(top, #ffffff, #FFF8DC)
+    background-image: linear-gradient(top, #ffffff, #FFF8DC)
+    text-decoration: none
   small
-    float: left
+    padding-top: 45px
+    margin-left: 18px
   ul
     float: right
     list-style: none
