@@ -1,0 +1,21 @@
+%h1.headline
+  Submit your review of pour & pedal
+
+= form_for review do |f|
+  - if review.errors.any?
+    .error_messages
+      %h2 Oops! You spilled wine on the form..
+      %ul
+        - for message in review.errors.full_messages
+          %li= message
+  = f.label :name
+  = f.text_field :name
+  = f.label :email, "Email (won't be published)"
+  = f.email_field :email
+  = f.label :hometown, "City, State, Country"
+  = f.text_field :hometown
+  = f.label :content, "Your review"
+  = f.text_area :content, rows: 15, class: 'input-xxlarge'
+  .clearfix
+  = f.submit "Submit your review", class: 'btn btn-large btn-success'
+  = link_to "Cancel", reviews_path

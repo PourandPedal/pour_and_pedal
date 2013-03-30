@@ -13,6 +13,7 @@ Pourpedal::Application.routes.draw do
   resources :charges
   resources :events
   resources :confirmations
+  resources :reviews
 
   post '/reserve' => 'charges#new', as: :new_charge_path
   post '/codes' => 'confirmations#show'
