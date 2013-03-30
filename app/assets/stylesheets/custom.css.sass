@@ -42,7 +42,7 @@ body
     padding: 50px 0 50px 0
     clear: both
     border: 0
-    background: #FFF8DC url('img-hr.png') no-repeat scroll 50% 50%
+    background: transparent url('img-hr.png') no-repeat scroll 50% 50%
     background-repeat-x: no-repeat
     background-repeat-y: no-repeat
     background-attachment: scroll
@@ -54,7 +54,11 @@ body
     height: 12px
 
   padding-top: 60px
-  background: #FFF8DC url(wine-bike.png) bottom right no-repeat fixed
+  background: url('wine-bike.png') center bottom no-repeat fixed, url('texture.jpg') no-repeat center center fixed
+  -webkit-background-size: auto, cover
+  -moz-background-size: auto, cover
+  -o-background-size: auto, cover
+  background-size: auto, cover
 section
   overflow: auto
 textarea
@@ -80,6 +84,43 @@ textarea
 
 .landingimages
   padding-top: 50px
+
+.explainer
+  opacity: 0.8
+  width: 75%
+  text-align: justify
+  text-justify: inter-word
+  margin-left: auto
+  margin-right: auto
+  padding: 18px 36px
+  background-color: #fafae2
+  -moz-box-shadow: 2px 2px 5px #6f123e
+  -webkit-box-shadow: 2px 2px 5px #6f123e
+  box-shadow: 2px 2px 5px #6f123e
+  -moz-border-radius: 0.5em
+  -ms-border-radius: 0.5em
+  -o-border-radius: 0.5em
+  -webkit-border-radius: 0.5em
+  border-radius: 0.5em
+  h3
+    text-align: right
+    font-size: 1.5em
+
+.subheader
+  opacity: 0.8
+  width: 75%
+  text-align: justify
+  text-justify: inter-word
+  margin-left: auto
+  margin-right: auto
+  padding: 18px 36px
+  background-color: #fafae2
+  border: .5em solid #6f123e
+  -moz-border-radius: 0.5em
+  -ms-border-radius: 0.5em
+  -o-border-radius: 0.5em
+  -webkit-border-radius: 0.5em
+  border-radius: 0.5em
 
 .goback
   margin-top: 18px
@@ -114,24 +155,25 @@ textarea
 #cta
   margin-left: auto
   margin-right: auto
-  width: 300px
+  width: 326px
+  color: #fafae2
 
 .mybtn
-  line-height: 1.5em
+  line-height: 50px
   font-size: 2em
   margin-left: auto
   margin-right: auto
   width: 300px
   height: 50px
-  color: #FFF8DC
+  color: #fafae2
 
 .hero-unit
   padding-top: 36px
-  background-color: #FFF8DC
+  background-color: transparent
+  margin-bottom: 0
   h1
     font-size: 5em
     line-height: .4
-    padding-bottom: 18px
   h2
     font-size: 2em
     margin-bottom: 8px
@@ -219,6 +261,45 @@ small
 
 .fixie
   position: fixed
+
+.pagination ul >
+  li >
+    a, span
+      float: left
+      padding: 4px 12px
+      line-height: 20px
+      text-decoration: none
+      background-color: #85a8be
+      border: 1px solid #6f123e
+      border-left-width: 0
+    a
+      &:hover, &:focus
+        background-color: #6f123e
+        color: white
+  .active >
+    a, span
+      background-color: whitesmoke
+.error_messages
+  background-color: #9a5977
+  color: white
+  -moz-box-shadow: 2px 3px 5px #6f123e
+  -webkit-box-shadow: 2px 3px 5px #6f123e
+  box-shadow: 2px 3px 5px #6f123e
+  -moz-border-radius: 0.5em
+  -ms-border-radius: 0.5em
+  -o-border-radius: 0.5em
+  -webkit-border-radius: 0.5em
+  border-radius: 0.5em
+  padding:  18px
+  margin-bottom: 18px
+  ul
+    text-align: center
+    li
+      font-size: 1.3em
+  h2
+    color: #FFF8DC
+    font-size: 2em
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
 
 footer
   position: fixed
