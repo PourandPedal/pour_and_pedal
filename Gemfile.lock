@@ -260,6 +260,7 @@ DEPENDENCIES
   fog
   hashrocket-rails
   jquery-rails
+  kaminari
   mailcatcher
   mini_magick
   pg
