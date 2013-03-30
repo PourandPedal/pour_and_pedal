@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>New Review from <%= @review.name %></h1>
+    <p> First name: <%= @review.name %></p>
+    <p> Last name: <%= @review.email %></p>
+    <p> Email: <%= mail_to @review.hometown %></p>
+    <p> Content: <%= @review.content %></p>
+    <p>With love and affection,</p>
+    <p>Your pour & pedal app</p>
+  </body>
+</html>

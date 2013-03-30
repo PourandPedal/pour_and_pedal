@@ -17,4 +17,10 @@ class NotificationMailer < ActionMailer::Base
     @contact = contact
     mail(to: 'pour@icouch.me', subject: "New P&P Customer Message")
   end
+
+  def new_review(review)
+    @review = review
+    @url = 'http://pour-and-pedal.herokuapp.com/admin'
+    mail(to: 'pour@icouch.me', subject: "New P&P Review Submitted")
+  end
 end
