@@ -5,9 +5,9 @@
       %nav
         %ul.nav.pull-right
           %li
-            %a{"data-toggle" => "modal", :href => "#myModal", :role => "button"} Redeem
+            %a{"data-toggle" => "modal", :href => "#myModal", :role => "button"} redeem
           %li
-            %a{"data-toggle" => "modal", :href => "#myreservation", :role => "button"} My Reservation
+            %a{"data-toggle" => "modal", :href => "#myreservation", :role => "button"} my reservation
           - if logged_in?
             %li
               = link_to "Sign out", logout_path
@@ -19,8 +19,10 @@
     %p
       = form_tag '/codes' do
         = text_field_tag :code
-        %hr
-        = submit_tag "Submit", class: 'btn btn-danger pull-right'
+        %br
+        = submit_tag "Submit", class: 'btn btn-danger'
+        %br
+          = image_tag('wine-bike-small.png', class: 'pull-right')
 #myreservation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
@@ -29,5 +31,7 @@
     %p
       = form_tag '/codes' do
         = text_field_tag :code
-        %hr
-        = submit_tag "Submit", class: 'btn btn-danger pull-right'
+        %br
+        = submit_tag "Submit", class: 'btn btn-danger'
+        %br
+          = image_tag('wine-bike-small.png', class: 'pull-right')
