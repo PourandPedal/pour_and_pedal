@@ -12,7 +12,10 @@
     %p
       = review.content
     %h3
-      #{review.name}, #{review.hometown}
+      - if review.hometown
+        #{review.name}, #{review.hometown}
+      - else
+        #{review.name}
   %hr
 .center
   = paginate reviews
