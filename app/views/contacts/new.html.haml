@@ -2,7 +2,6 @@
   have a question?
 %h2
   for special group rates and reservations, please call 646-258-0112
-%hr
 .span4
   %form.form-horizontal
   = form_for contact do |f|
@@ -15,5 +14,5 @@
     = f.label :phone
     = f.telephone_field :phone
     = f.label :message, "Your message"
-    = f.text_area :message, cols: 20, rows: 10
+    = f.text_area :message, rows: 15, class: 'input-xxlarge'
     = f.submit "send message", class: 'btn btn-large btn-success'
