@@ -1,0 +1,5 @@
+.headline
+#galleria
+  - photos.each do |photo|
+    %img
+      = image_tag(photo.photo.large)
