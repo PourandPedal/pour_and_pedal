@@ -15,7 +15,8 @@ Pourpedal::Application.routes.draw do
   resources :confirmations
   resources :reviews
 
-  post '/reserve' => 'charges#new', as: :new_charge_path
+  post '/request-reservation' => 'charges#requesting', as: :request_reservation
+  post '/reserve' => 'charges#new', as: :new_charge
   post '/codes' => 'confirmations#show'
   post '/redeem_code' => 'charges#redeem'
   post '/confirm_booking' => 'charges#create_with_no_balance_due'

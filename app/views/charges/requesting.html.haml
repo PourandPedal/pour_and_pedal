@@ -1,0 +1,27 @@
+%h1.headline
+  Reserving for #{@trip.event.title}
+%h2
+  #{@trip.date.to_formatted_s(:long_ordinal)}
+.span5
+  = form_tag '/reserve' do
+    = label_tag "Number of tickets"
+    = select_tag :quantity, options_for_select(1..@trip.spots_available)
+    = hidden_field_tag :trip_id, @trip.id
+    = label_tag "Email"
+    = email_field_tag :email
+    = label_tag "Phone"
+    = telephone_field_tag :phone
+    = label_tag "First name"
+    = text_field_tag :first_name
+    = label_tag "Last name"
+    = text_field_tag :last_name
+    = label_tag "Zip/Postal Code"
+    = text_field_tag :zipcode
+    = label_tag "Redemption Code"
+    = text_field_tag :redemption_code
+    .clearfix
+    = submit_tag "continue", class: 'btn btn-large btn-danger'
+.span5
+  - @trip.event.photos.each do |t|
+    - if t.is_primary?
+      = image_tag t.photo.large, class: 'img-polaroid'

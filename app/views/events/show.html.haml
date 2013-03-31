@@ -2,55 +2,40 @@
   = link_to "back to event listings", events_path
 %h1.headline
   = event.title
-%h2
-  #{event.date.to_formatted_s(:month_day_and_year)} at #{event.date.to_formatted_s(:time_only)}
-- if event.spots_available > 0
-  %p.spots
-    There are #{event.spots_available} spots still available for this trip!
-- else
-  %p.spots
-    We're sorry, this trip is sold out! How about looking at our other trips?
-  %p.spots
-    = link_to "Find more trips", events_path
 %img
   - event.photos.each do |photo|
     - if photo.is_primary?
       = image_tag photo.photo.headline, class: 'img-polaroid'
 %p.description
   = event.description
-.span9
-  %p.price
-    #{number_to_currency(event.price)} per ticket
-.clearfix
-- if event.spots_available > 0
-  .span4
-    %a.btn.btn-large.btn-danger{"data-toggle" => "modal", :href => "#bookingform", :role => "button"} reserve your spot now
+.maxheight
+  %table.table
+    %thead
+      %tr
+        %th.span3 Date
+        %th.span3 Price
+        %th.span3 Spots Available
+        %th.span3
+    %tbody
+      %td
+        - event.trips.sort_by!{|e| e[:date]}
+        - event.trips.each do |e|
+          - if e.date > Date.today + 1
+            %tr
+              %td
+                = link_to e.title, '#'
+              %td
+                = number_to_currency(e.price)
+              - if e.spots_available > 0
+                %td
+                  #{pluralize(e.spots_available, 'spots')} available
+                %td
+                  = form_tag '/request-reservation' do
+                    = hidden_field_tag :trip_id, e.id
+                    = submit_tag "Reserve Now", class: 'btn btn-success'
+              - else
+                %td
+                  SOLD OLD
+                %td
 
-    #bookingform.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-      .modal-header
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-        %h3#bookingform
-          = event.title
-      .modal-body
-        = form_tag '/reserve' do
-          = label_tag "Number of tickets"
-          = select_tag :quantity, options_for_select(1..event.spots_available)
-          = hidden_field_tag :event_id, event.id
-          = label_tag "Email"
-          = email_field_tag :email
-          = label_tag "Phone"
-          = telephone_field_tag :phone
-          = label_tag "First name"
-          = text_field_tag :first_name
-          = label_tag "Last name"
-          = text_field_tag :last_name
-          = label_tag "Zip/Postal Code"
-          = text_field_tag :zipcode
-          = label_tag "Redemption Code"
-          = text_field_tag :redemption_code
-          = submit_tag "book now", class: 'btn btn-large btn-danger'
-- else
-  %p.spots
-    We're sorry, this trip is sold out! How about looking at our other trips?
-  %p.spots
-    = link_to "find more trips", events_path
+%hr

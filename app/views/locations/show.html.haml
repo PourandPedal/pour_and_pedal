@@ -6,7 +6,7 @@
 %p
   = location.description
 %h2
-  upcoming events
+  our events
 - location_events(location)
 - @events.each do |event|
   .span3.eventlisting
@@ -21,12 +21,4 @@
       %li
         = truncate event.description, length: 500
         = link_to 'read more', event
-      %li.pull-right.price
-        = number_to_currency(event.price)
-      - if event.spots_available > 0
-        %br
-        %p
-          There are #{event.spots_available} spots still available for this trip!
-      - else
-        %p This trip is sold out!
   %hr

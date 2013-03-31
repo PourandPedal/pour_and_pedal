@@ -1,13 +1,12 @@
 class Event < ActiveRecord::Base
-  attr_accessible :date, :description, :price,
-                  :title, :spots_available, :tickets_sold, :location,
-                  :directions, :location_id, :photos_attributes
+  attr_accessible :date, :description,
+                  :title, :location,
+                  :directions, :location_id, :photo_ids, :trips_attributes
 
-  has_many :confirmations
-  has_many :clients, through: :confirmations
   belongs_to :location
 
-  has_many :photos, dependent: :destroy, inverse_of: :event
-  accepts_nested_attributes_for :photos, allow_destroy: true
+  has_and_belongs_to_many :photos
+  has_many :trips, dependent: :destroy, inverse_of: :event
+  accepts_nested_attributes_for :trips, allow_destroy: true
 
 end

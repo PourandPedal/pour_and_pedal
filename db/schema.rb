@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330220322) do
+ActiveRecord::Schema.define(:version => 20130330235353) do
 
   create_table "clients", :force => true do |t|
     t.string   "email"
@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(:version => 20130330220322) do
     t.string   "zipcode"
     t.datetime "created_at",        :null => false
     t.datetime "updated_at",        :null => false
-    t.integer  "event_id"
     t.decimal  "amount_paid"
     t.datetime "date_paid"
     t.string   "stripe_id"
     t.integer  "tickets_purchased"
+    t.integer  "trip_id"
   end
 
   create_table "confirmations", :force => true do |t|
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(:version => 20130330220322) do
     t.decimal  "value"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
-    t.integer  "event_id"
     t.boolean  "is_cancelled"
     t.date     "redeemed_on"
+    t.integer  "trip_id"
   end
 
   create_table "contacts", :force => true do |t|
@@ -54,17 +54,30 @@ ActiveRecord::Schema.define(:version => 20130330220322) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "dates", :force => true do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.decimal  "price"
+    t.integer  "spots_available"
+    t.integer  "tickets_sold"
+    t.integer  "event_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "events", :force => true do |t|
     t.datetime "date"
     t.string   "title"
     t.text     "description"
-    t.decimal  "price"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.integer  "spots_available"
-    t.integer  "tickets_sold"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.text     "directions"
     t.integer  "location_id"
+  end
+
+  create_table "events_photos", :id => false, :force => true do |t|
+    t.integer "event_id"
+    t.integer "photo_id"
   end
 
   create_table "faqs", :force => true do |t|
@@ -88,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20130330220322) do
     t.datetime "updated_at",  :null => false
     t.string   "photo"
     t.integer  "event_id"
+    t.string   "title"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -121,6 +135,17 @@ ActiveRecord::Schema.define(:version => 20130330220322) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "trips", :force => true do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.decimal  "price"
+    t.integer  "spots_available"
+    t.integer  "tickets_sold"
+    t.integer  "event_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

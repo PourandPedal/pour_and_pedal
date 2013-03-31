@@ -1,25 +1,22 @@
-%h2 Reservation Summary
+%h1.headline
+  Reservation Summary
 %p
-  Confirmation Number: #{@confirmation.confirmation_number}
+  Confirmation Number: #{confirmation.confirmation_number}
 %p
-  Email: #{@confirmation.client.email}
+  Email: #{confirmation.client.email}
 
 %ul
   %li
-    #{@confirmation.client.first_name} #{@confirmation.client.last_name}
+    #{confirmation.client.first_name} #{confirmation.client.last_name}
   %li
-    = @confirmation.event.title
+    = confirmation.trip.event.title
   %li
-    = @confirmation.event.date.to_formatted_s(:long_ordinal)
+    = confirmation.trip.date.to_formatted_s(:long_ordinal)
   %li
-    #{pluralize(@confirmation.client.tickets_purchased, 'ticket')}
+    #{pluralize(confirmation.client.tickets_purchased, 'ticket')}
   %li
-    Total amount paid #{number_to_currency(@confirmation.client.amount_paid)}
+    Total amount paid #{number_to_currency(confirmation.client.amount_paid)}
   %li
-    = @confirmation.event.directions
+    Directions:
+    = confirmation.trip.event.directions
   %hr
-
-%p
-  Let your friends know you're going!
-  = link_to "Share on Facebook", '#'
-  = link_to "Share on Twitter", '#'

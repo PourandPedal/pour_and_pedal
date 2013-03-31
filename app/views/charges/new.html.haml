@@ -1,42 +1,48 @@
-%h1.headline
-  Booking #{@event.title}
+.headline
 
-= form_tag charges_path do
-  %article
-    %label.amount
-      %span
-        Reserving #{pluralize(@quantity, 'ticket')} for #{@event.title} on #{@event.date.to_formatted_s(:long_ordinal)}
-      %br
-        - if session[:code_not_found]
-          %h2
-            We're sorry, but this code can't be found.
-          %p
-            #{link_to "Go back and try again", event_path(@event)} or continue with booking this trip.
-        - if @redemption_code
-          - if @redemption_code.is_used?
+.explainer
+  = form_tag charges_path do
+    %article
+      %label.amount
+        %h4
+          Reserving #{pluralize(@quantity, 'ticket')} for #{@trip.event.title} on #{@trip.date.to_formatted_s(:long_ordinal)}
+        %br
+          - if session[:code_not_found]
             %h2
-              We're sorry, but this code has been used.
-          - else
-            - if @redemption_code.is_expired?
-              We're sorry, but your redemption code is expired.
+              We're sorry, but this code can't be found.
+            %p
+              #{link_to "Go back and try again", event_path(@trip.event)} or continue with booking this trip.
+          - if @redemption_code
+            - if session[:redemption_code_is_used]
+              %h2
+                We're sorry, but this code has been used.
+              %p
+                #{link_to "Go back and try again", event_path(@trip.event)} or continue with booking this trip.
             - else
-              Your code is worth #{number_to_currency(@redemption_code.value)} which leaves a remaining balance of
-              - if (session[:event_price] * @quantity) > 0
-                #{number_to_currency(session[:event_price] * @quantity)}.
+              - if @redemption_code.is_expired?
+                %h2
+                  We're sorry, but your redemption code is expired.
+                %p
+                  #{link_to "Go back and try again", event_path(@trip.event)} or continue with booking this trip.
               - else
-                zero!
-        - else
-          Amount: #{number_to_currency(session[:event_price] * @quantity)}
-  %p
-  - if session[:event_price] && session[:event_price] * @quantity > 0
-    %script.stripe-button{"data-amount" => session[:event_price] * @quantity * 100, "data-description" => @event.title, "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/v2/checkout.js"}
-    = link_to 'cancel', event_path(@event)
-  - else
-    = form_tag '/confirm_booking' do
-      = submit_tag "Confirm Booking", class: 'btn btn-success'
-    = link_to 'cancel', event_path(@event)
-  %hr
-  %img
-    - @event.photos.each do |photo|
-      - if photo.is_primary?
-        = image_tag photo.photo.headline, class: 'img-polaroid'
+                %h2
+                  Your code is worth #{number_to_currency(@redemption_code.value)} which leaves a remaining balance of
+                  - if (session[:trip_price] * @quantity) > 0
+                    #{number_to_currency(session[:trip_price] * @quantity)}.
+                  - else
+                    zero!
+          - else
+            %h4
+              Amount: #{number_to_currency(session[:trip_price] * @quantity)}
+    %p
+    - if session[:trip_price] && session[:trip_price] * @quantity > 0
+      %script.stripe-button{"data-amount" => session[:trip_price] * @quantity * 100, "data-description" => @trip.event.title, "data-key" => Rails.configuration.stripe[:publishable_key], :src => "https://checkout.stripe.com/v2/checkout.js"}
+      = link_to 'cancel', event_path(@trip.event)
+    - else
+      = form_tag '/confirm_booking' do
+        = submit_tag "Confirm Booking", class: 'btn btn-success'
+      = link_to 'cancel', event_path(@trip.event)
+%img
+  - @trip.event.photos.each do |photo|
+    - if photo.is_primary?
+      = image_tag photo.photo.headline, class: 'img-polaroid'
