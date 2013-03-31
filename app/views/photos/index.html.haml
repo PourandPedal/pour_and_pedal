@@ -1,5 +1,15 @@
-.headline
-#galleria
-  - photos.each do |photo|
-    %img
-      = image_tag(photo.photo.large)
+%h1.headline
+  The Pour & Pedal Gallery
+  / TODO: Flickr integration
+#myPhotoCarousel.carousel.slide
+  / Carousel items
+  .carousel-inner
+    - photos.each do |photo|
+      .item
+        %img
+          = image_tag(photo.photo.headline, class: 'center')
+  / Carousel nav
+  %a.carousel-control.left{"data-slide" => "prev", :href => "#myPhotoCarousel"} &lsaquo;
+  %a.carousel-control.right{"data-slide" => "next", :href => "#myPhotoCarousel"} &rsaquo;
+.clearfix
+%hr
