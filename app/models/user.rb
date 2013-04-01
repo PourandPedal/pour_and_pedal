@@ -10,4 +10,10 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name
 
   has_paper_trail
+
+  before_save :set_username
+
+  def set_username
+    self.username = self.email
+  end
 end
