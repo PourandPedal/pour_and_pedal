@@ -11,7 +11,7 @@ RailsAdmin.config do |config|
   ################  Global configuration  ################
 
   # Set the admin name here (optional second array element will appear in red). For example:
-  config.main_app_name = ['Pour & Pedal', 'Admin']
+  config.main_app_name = ['pour & pedal', 'admin']
   # or for a more dynamic name:
   # config.main_app_name = Proc.new { |controller| [Rails.application.engine_name.titleize, controller.params['action'].titleize] }
 
@@ -19,89 +19,227 @@ RailsAdmin.config do |config|
   config.current_user_method { current_user } # auto-generated
 
   # If you want to track changes on your models:
-  # config.audit_with :history, 'Admin'
-
-  # Or with a PaperTrail: (you need to install it first)
-  # config.audit_with :paper_trail, 'Admin'
-
-  # Display empty fields in show views:
-  # config.compact_show_view = false
-
-  # Number of default rows per-page:
-  # config.default_items_per_page = 20
-
-  # Exclude specific models (keep the others):
-  # config.excluded_models = ['User']
-
-  # Include specific models (exclude the others):
-  # config.included_models = ['User']
-
-  # Label methods for model instances:
-  # config.label_methods << :description # Default is [:name, :title]
-
-
-  ################  Model configuration  ################
-
-  # Each model configuration can alternatively:
-  #   - stay here in a `config.model 'ModelName' do ... end` block
-  #   - go in the model definition file in a `rails_admin do ... end` block
-
-  # This is your choice to make:
-  #   - This initializer is loaded once at startup (modifications will show up when restarting the application) but all RailsAdmin configuration would stay in one place.
-  #   - Models are reloaded at each request in development mode (when modified), which may smooth your RailsAdmin development workflow.
-
-
-  # Now you probably need to tour the wiki a bit: https://github.com/sferik/rails_admin/wiki
-  # Anyway, here is how RailsAdmin saw your application's models when you ran the initializer:
-
-
-
-  ###  User  ###
-
-  # config.model 'User' do
-
-  #   # You can copy this to a 'rails_admin do ... end' block inside your user.rb model definition
   config.audit_with :paper_trail, User
 
-  #   # Found associations:
+  config.model 'User' do
+    object_label_method do
+      :name
+    end
+    list do
+      field :name
+      field :email
+    end
 
+    edit do
+      field :name do
+        help 'required'
+      end
+      field :email do
+        help 'required'
+      end
+    end
 
+    show do
+      field :name
+      field :email
+    end
+  end
 
-  #   # Found columns:
+  config.model 'Review' do
+    list do
+      field :name
+      field :email
+      field :hometown
+      field :created_at
+      field :featured
+    end
 
-  #     configure :id, :integer
-  #     configure :username, :string
-  #     configure :email, :string
-  #     configure :crypted_password, :string
-  #     configure :salt, :string
-  #     configure :created_at, :datetime
-  #     configure :updated_at, :datetime
-  #     configure :remember_me_token, :string
-  #     configure :remember_me_token_expires_at, :datetime
+    edit do
+      field :featured do
+        help 'optional: this will call out the review on the review page'
+      end
+      field :name do
+        help 'required'
+      end
+      field :email do
+        help 'required'
+      end
+      field :hometown do
+        help 'required'
+      end
+      field :content do
+        help 'required'
+      end
+    end
 
-  #   # Cross-section configuration:
+    show do
+      field :featured
+      field :name
+      field :email
+      field :hometown
+      field :content
+      field :created_at
+    end
+  end
 
-  #     # object_label_method :name     # Name of the method called for pretty printing an *instance* of ModelName
-  #     # label 'My model'              # Name of ModelName (smartly defaults to ActiveRecord's I18n API)
-  #     # label_plural 'My models'      # Same, plural
-  #     # weight 0                      # Navigation priority. Bigger is higher.
-  #     # parent OtherModel             # Set parent model for navigation. MyModel will be nested below. OtherModel will be on first position of the dropdown
-  #     # navigation_label              # Sets dropdown entry's name in navigation. Only for parents!
+  config.model 'Photo' do
+    list do
+      field :title
+      field :photo
+      field :in_gallery
+    end
 
-  #   # Section specific configuration:
+    edit do
+      field :title do
+        help 'required: this will identify the photo when adding to events'
+      end
+      field :photo do
+        help 'required'
+      end
+      field :is_primary do
+        help 'optional: only one primary photo per event or location'
+      end
+      field :in_gallery do
+        help 'optional'
+      end
+      field :events do
+        help ''
+      end
+    end
 
-  #     list do
-  #       # filters [:id, :name]  # Array of field names which filters should be shown by default in the table header
-  #       # items_per_page 100    # Override default_items_per_page
-  #       # sort_by :id           # Sort column (default is primary key)
-  #       # sort_reverse true     # Sort direction (default is true for primary key, last created first)
-  #     end
-  #     show do; end
-  #     edit do; end
-  #     export do; end
-  #     # also see the create, update, modal and nested sections, which override edit in specific cases (resp. when creating, updating, modifying from another model in a popup modal or modifying from another model nested form)
-  #     # you can override a cross-section field configuration in any section with the same syntax `configure :field_name do ... end`
-  #     # using `field` instead of `configure` will exclude all other fields and force the ordering
-  # end
+    show do
+      field :title
+      field :photo
+      field :events
+      field :is_primary
+      field :in_gallery
+      field :created_at
+    end
+  end
+
+  config.model 'Location' do
+    list do
+      field :name
+    end
+  end
+
+  config.model 'Faq' do
+    list do
+      field :question
+    end
+  end
+
+  config.model 'Event' do
+    list do
+      field :title
+      field :location
+    end
+  end
+
+  config.model 'Trip' do
+    list do
+      field :event
+      field :title
+      field :date
+      field :spots_available
+      field :tickets_sold
+      field :price
+    end
+
+    edit do
+      field :title do
+        help 'required: this identifies the trip in the event listings. Use a title like, "April 25" or "April 25-VIP" if the titles need to be distinguished.'
+      end
+      field :date do
+        help 'required'
+      end
+      field :price do
+        help 'required: numbers only (i.e. 125.00 or 125)'
+      end
+      field :spots_available do
+        help 'optional: only whole numbers'
+      end
+      field :tickets_sold do
+        help 'this field will automatically update based on sales'
+      end
+    end
+  end
+
+  config.model 'Client' do
+    object_label_method do
+      :last_name
+    end
+
+    list do
+      field :first_name
+      field :last_name
+      field :email
+      field :trip
+      field :confirmation
+    end
+  end
+
+  config.model 'Contact' do
+    object_label_method do
+      :last_name
+    end
+
+    list do
+      field :responded
+      field :first_name
+      field :last_name
+      field :phone
+      field :email
+    end
+
+    edit do
+      field :responded
+      field :response_date
+      field :responded_by
+      field :notes
+      field :first_name
+      field :last_name
+      field :phone
+      field :email
+      field :message
+    end
+  end
+
+  config.model 'Confirmation' do
+    object_label_method do
+      :confirmation_number
+    end
+
+    list do
+      field :confirmation_number
+      field :is_used
+      field :expiration_date
+      field :trip
+    end
+
+    edit do
+      field :confirmation_number do
+        help 'required: this number can be either a discount code or reservation confirmation number'
+      end
+      field :is_used do
+        help 'this will automatically update when used, but it can be manually changed as well'
+      end
+      field :expiration_date do
+        help 'optional'
+      end
+      field :source do
+        help 'optional: the creator of the confirmation (i.e. the website, groupon, living social, etc)'
+      end
+      field :created_by do
+        help 'the creator of the confirmation number, either an employee name or the client directly through the website'
+      end
+      field :value do
+        help 'dollar amount in decimials (i.e. 125, 125.0, or 125.00) this will be the amount of discount the code allows or the dollar value of the reservation.'
+      end
+      field :is_cancelled do
+        help 'check this box to instantly cancel any confirmation/code'
+      end
+    end
+  end
 
 end
