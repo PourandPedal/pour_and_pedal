@@ -4,4 +4,6 @@ class Location < ActiveRecord::Base
   accepts_nested_attributes_for :photos, allow_destroy: true
 
   has_many :events
+
+  has_paper_trail
 end

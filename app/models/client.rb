@@ -5,4 +5,6 @@ class Client < ActiveRecord::Base
   has_one :trip, through: :confirmation
   has_one :confirmation
 
+  has_paper_trail
+
 end

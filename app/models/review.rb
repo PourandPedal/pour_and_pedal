@@ -7,4 +7,6 @@ class Review < ActiveRecord::Base
   validates :hometown, presence: true, length: { maximum: 50 }
   validates :content, presence: true
 
+  has_paper_trail
+
 end

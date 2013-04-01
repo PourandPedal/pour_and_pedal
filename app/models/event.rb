@@ -9,4 +9,6 @@ class Event < ActiveRecord::Base
   has_many :trips, dependent: :destroy, inverse_of: :event
   accepts_nested_attributes_for :trips, allow_destroy: true
 
+  has_paper_trail
+
 end
