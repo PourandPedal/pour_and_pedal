@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130330235353) do
+ActiveRecord::Schema.define(:version => 20130401202006) do
 
   create_table "clients", :force => true do |t|
     t.string   "email"
@@ -50,8 +50,12 @@ ActiveRecord::Schema.define(:version => 20130330235353) do
     t.string   "phone"
     t.text     "message"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
+    t.boolean  "responded",     :default => false
+    t.date     "response_date"
+    t.string   "responded_by"
+    t.text     "notes"
   end
 
   create_table "dates", :force => true do |t|
@@ -66,7 +70,6 @@ ActiveRecord::Schema.define(:version => 20130330235353) do
   end
 
   create_table "events", :force => true do |t|
-    t.datetime "date"
     t.string   "title"
     t.text     "description"
     t.datetime "created_at",  :null => false
@@ -100,8 +103,8 @@ ActiveRecord::Schema.define(:version => 20130330235353) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.string   "photo"
-    t.integer  "event_id"
     t.string   "title"
+    t.boolean  "in_gallery"
   end
 
   create_table "rails_admin_histories", :force => true do |t|
@@ -124,6 +127,7 @@ ActiveRecord::Schema.define(:version => 20130330235353) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.boolean  "featured"
   end
 
   create_table "sessions", :force => true do |t|
@@ -151,13 +155,25 @@ ActiveRecord::Schema.define(:version => 20130330235353) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at",                   :null => false
-    t.datetime "updated_at",                   :null => false
+    t.datetime "created_at",                                     :null => false
+    t.datetime "updated_at",                                     :null => false
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
-    t.boolean  "admin"
+    t.string   "name"
+    t.boolean  "admin",                        :default => true
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
+
+  create_table "versions", :force => true do |t|
+    t.string   "item_type",  :null => false
+    t.integer  "item_id",    :null => false
+    t.string   "event",      :null => false
+    t.string   "whodunnit"
+    t.text     "object"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["item_type", "item_id"], :name => "index_versions_on_item_type_and_item_id"
 
 end
