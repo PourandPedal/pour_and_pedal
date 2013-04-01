@@ -4,9 +4,9 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>A new booking for <%= @event.title %>!</h1>
+    <h1>A new booking for <%= @trip.event.title %>!</h1>
     <p>
-      Someone just booked a trip for <%= @event.title %> on <%= @event.date.to_formatted_s(:long_ordinal) %>! So far, this event has <%=pluralize(@event.tickets_sold, 'ticket') %> sold and <%= pluralize(@event.spots_available, 'spot') %> remaining.<br/>
+      Someone just booked a trip for <%= @trip.event.title %> on <%= @trip.date.to_formatted_s(:long_ordinal) %>! So far, this event has <%=pluralize(@trip.tickets_sold, 'ticket') %> sold and <%= pluralize(@trip.spots_available, 'spot') %> remaining.<br/>
     </p>
     <p>With love and affection,</p>
     <p>Your pour & pedal app</p>

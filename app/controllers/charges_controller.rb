@@ -91,9 +91,9 @@ class ChargesController < ApplicationController
       @confirmation_number = generate_confirmation_number(@trip, @newclient)
       confirmation_create(@confirmation_number, @newclient, @trip, @quantity)
       used_code
-     ## UPDATE MAILERS!!
-      # NotificationMailer.booking_notification(@trip).deliver
-      # NotificationMailer.booking_confirmation(@trip, @newclient).deliver
+
+      NotificationMailer.booking_notification(@trip).deliver
+      NotificationMailer.booking_confirmation(@trip, @newclient).deliver
     end
 
     rescue Stripe::CardError => e
@@ -118,9 +118,9 @@ class ChargesController < ApplicationController
     confirmation_create(@confirmation_number, @newclient, @trip, @quantity)
     used_code
 
-    ##update mailers
-    # NotificationMailer.booking_notification(@event).deliver
-    # NotificationMailer.booking_confirmation(@event, @newclient).deliver
+
+    NotificationMailer.booking_notification(@trip).deliver
+    NotificationMailer.booking_confirmation(@trip, @newclient).deliver
   end
 
   def confirmation_create(confirmation, client, trip, quantity)

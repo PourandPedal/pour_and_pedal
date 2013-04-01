@@ -1,15 +1,15 @@
 class NotificationMailer < ActionMailer::Base
   default from: "do-not-reply@pourandpedal.com"
 
-  def booking_notification(event)
-    @event = event
+  def booking_notification(trip)
+    @trip = trip
     @url = 'http://pour-and-pedal.herokuapp.com/admin'
     mail(to: "pour@icouch.me", subject: "P&P New Booking")
   end
 
-  def booking_confirmation(event, user)
+  def booking_confirmation(trip, user)
     @user = user
-    @event = event
+    @trip = trip
     mail(to: @user.email, subject: "pour & pedal booking confirmed!")
   end
 
