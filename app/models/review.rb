@@ -1,5 +1,5 @@
 class Review < ActiveRecord::Base
-  attr_accessible :content, :email, :hometown, :name
+  attr_accessible :content, :email, :hometown, :name, :featured
 
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

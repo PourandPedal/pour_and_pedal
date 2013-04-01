@@ -8,14 +8,24 @@
     Pour & Pedal bike tours are awesome! But don't take our word for it; here's what our clients have to say..
 .paddtop
 - reviews.each do |review|
-  .explainer
-    %p
-      = review.content
-    %h3
-      - if review.hometown.blank?
-        #{review.name}
-      - else
-        #{review.name}, #{review.hometown}
+  - if review.featured?
+    .explainer
+      %p.lead
+        = review.content
+      %h3
+        - if review.hometown.blank?
+          #{review.name}
+        - else
+          #{review.name}, #{review.hometown}
+  - else
+    .explainer
+      %p
+        = review.content
+      %h3
+        - if review.hometown.blank?
+          #{review.name}
+        - else
+          #{review.name}, #{review.hometown}
   %hr
 .center
   = paginate reviews

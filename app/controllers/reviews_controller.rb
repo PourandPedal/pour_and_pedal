@@ -1,7 +1,10 @@
 class ReviewsController < ApplicationController
 
   expose(:review)
-  expose(:reviews) { Review.order("created_at").page(params[:page]).per(5)}
+  expose(:reviews) { Review.order("featured").page(params[:page]).per(5)}
+
+  def show
+  end
 
   def create
     if review.save
