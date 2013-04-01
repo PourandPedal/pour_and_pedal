@@ -1,0 +1,10 @@
+%h1.paddtop
+  .explainer
+    %p.lead
+      = review.content
+    %h3
+      - if review.hometown.blank?
+        #{review.name}
+      - else
+        #{review.name}, #{review.hometown}
+    %hr
