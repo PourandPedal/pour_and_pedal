@@ -1,8 +1,13 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :is_primary, :location_id, :photo, :photo_cache, :remove_photo, :event_ids, :title
+  attr_accessible :is_primary, :location_id, :photo, :photo_cache,
+                  :remove_photo, :title, :in_gallery, :event_ids
   belongs_to :location, inverse_of: :photos
   has_and_belongs_to_many :events
   mount_uploader :photo, PhotoUploader
+
+  validates_presence_of :title, :photo
+
+  has_paper_trail
 
   before_save :set_primary
 

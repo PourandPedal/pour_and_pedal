@@ -4,10 +4,11 @@
 #myPhotoCarousel.carousel.slide
   / Carousel items
   .carousel-inner
+    - photos.shuffle!
     - photos.each do |photo|
       .item
         %img
-          = image_tag(photo.photo.headline, class: 'center')
+          = image_tag(photo.photo.gallery, class: 'center')
   / Carousel nav
   %a.carousel-control.left{"data-slide" => "prev", :href => "#myPhotoCarousel"} &lsaquo;
   %a.carousel-control.right{"data-slide" => "next", :href => "#myPhotoCarousel"} &rsaquo;
