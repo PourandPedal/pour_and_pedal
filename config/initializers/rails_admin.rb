@@ -61,6 +61,7 @@ RailsAdmin.config do |config|
   # config.model 'User' do
 
   #   # You can copy this to a 'rails_admin do ... end' block inside your user.rb model definition
+  config.audit_with :paper_trail, User
 
   #   # Found associations:
 
