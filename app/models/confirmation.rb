@@ -6,5 +6,8 @@ class Confirmation < ActiveRecord::Base
   belongs_to :trip
   belongs_to :client
 
+  validates_presence_of :confirmation_number
+
   has_paper_trail
+
 end
