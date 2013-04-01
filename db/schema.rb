@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401225458) do
+ActiveRecord::Schema.define(:version => 20130401230314) do
 
   create_table "clients", :force => true do |t|
     t.string   "email"
@@ -155,16 +155,20 @@ ActiveRecord::Schema.define(:version => 20130401225458) do
     t.string   "email"
     t.string   "crypted_password"
     t.string   "salt"
-    t.datetime "created_at",                                     :null => false
-    t.datetime "updated_at",                                     :null => false
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.string   "name"
-    t.boolean  "admin",                        :default => true
+    t.boolean  "admin",                           :default => true
     t.string   "username"
+    t.string   "reset_password_token"
+    t.datetime "reset_password_token_expires_at"
+    t.datetime "reset_password_email_sent_at"
   end
 
   add_index "users", ["remember_me_token"], :name => "index_users_on_remember_me_token"
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token"
 
   create_table "versions", :force => true do |t|
     t.string   "item_type",  :null => false

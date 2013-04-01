@@ -11,4 +11,13 @@
     .field
       = check_box_tag :remember_me, 1, params[:remember_me]
       = label_tag :remember_me
-    .actions= submit_tag "Log in", class: 'btn btn-large btn-danger'
+    %br
+    .actions
+      = submit_tag "Log in", class: 'btn btn-large btn-danger'
+  .clearfix
+  %p
+    = link_to "Forgot Password?", '#', id: 'forgot', class: 'btn btn-success'
+  %p
+    = link_to "Nevermind!", '#', id: 'nevermind', class: 'btn btn-success'
+  #forgotform
+    = render 'forgot_password_form'

@@ -15,6 +15,7 @@ Pourpedal::Application.routes.draw do
   resources :confirmations
   resources :reviews
   resources :photos
+  resources :password_resets
 
   post '/request-reservation' => 'charges#requesting', as: :request_reservation
   post '/reserve' => 'charges#new', as: :new_charge
