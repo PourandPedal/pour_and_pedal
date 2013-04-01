@@ -1,8 +1,10 @@
 %h1.paddtop
   frequently asked questions
-- if faqs
-  - faqs.each do |faq|
-    %dd
+%h2
+  if your question isn't answered here, please #{link_to "contact us", new_contact_path}!
+.explainer
+  - @faqs.each do |faq|
+    %dd.lead
       = faq.question
     %dl
       = faq.answer

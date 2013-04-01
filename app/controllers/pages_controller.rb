@@ -1,11 +1,10 @@
 class PagesController < ApplicationController
 
-  expose(:faqs) { Faq.all }
-
   def index
   end
 
   def faqs
+    @faqs = Faq.all
   end
 
   def about
