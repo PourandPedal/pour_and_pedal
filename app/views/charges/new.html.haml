@@ -42,7 +42,3 @@
       = form_tag '/confirm_booking' do
         = submit_tag "Confirm Booking", class: 'btn btn-success'
       = link_to 'cancel', event_path(@trip.event)
-%img
-  - @trip.event.photos.each do |photo|
-    - if photo.is_primary?
-      = image_tag photo.photo.headline, class: 'img-polaroid'

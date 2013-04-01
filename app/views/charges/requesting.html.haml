@@ -2,7 +2,7 @@
   Reserving for #{@trip.event.title}
 %h2
   #{@trip.date.to_formatted_s(:long_ordinal)}
-.span5
+.span3.explainer
   = form_tag '/reserve' do
     = label_tag "Number of tickets"
     = select_tag :quantity, options_for_select(1..@trip.spots_available)
@@ -21,7 +21,3 @@
     = text_field_tag :redemption_code
     .clearfix
     = submit_tag "continue", class: 'btn btn-large btn-danger'
-.span5
-  - @trip.event.photos.each do |t|
-    - if t.is_primary?
-      = image_tag t.photo.large, class: 'img-polaroid'
