@@ -17,7 +17,7 @@ gem 'sorcery'
 gem 'paper_trail'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'thin'
-gem 'turbolinks'
+# gem 'turbolinks'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
