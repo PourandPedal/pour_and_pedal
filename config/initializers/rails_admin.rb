@@ -108,7 +108,6 @@ RailsAdmin.config do |config|
       field :photo
       field :events
       field :is_primary
-      field :in_gallery
       field :created_at
     end
   end
