@@ -11,6 +11,9 @@
           - if logged_in?
             %li
               = link_to "Sign out", logout_path
+          %li
+            .fb-like.pull-right.padfb{"data-font" => "lucida grande", "data-href" => "http://pourandpedal.com", "data-layout" => "button_count", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
+  .clearfix
 #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
