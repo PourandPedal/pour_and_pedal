@@ -268,7 +268,7 @@ DEPENDENCIES
   rails-erd
   rails_admin
   sass-rails (~> 3.2.3)
-  sorcery (~> 0.7.13)
+  sorcery
   stripe!
   thin
   uglifier (>= 1.0.3)
