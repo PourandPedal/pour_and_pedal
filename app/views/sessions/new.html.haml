@@ -8,9 +8,6 @@
     .field
       = label_tag :password
       = password_field_tag :password
-    .field
-      = check_box_tag :remember_me, 1, params[:remember_me]
-      = label_tag :remember_me
     %br
     .actions
       = submit_tag "Log in", class: 'btn btn-large btn-danger'
