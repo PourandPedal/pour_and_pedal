@@ -31,7 +31,7 @@ class Photo < ActiveRecord::Base
       current_primary = self
       if self.events[0].id
         event_id = self.events[0].id
-        photos = Photo.where(event_id: event_id, is_primary: true)
+        photos = Photo.where(event_id: event_id, primary_for_event: true)
       else
       end
         photos.each do |photo|
