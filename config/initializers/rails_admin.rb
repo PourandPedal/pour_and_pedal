@@ -86,6 +86,8 @@ RailsAdmin.config do |config|
     list do
       field :title
       field :photo
+      field :primary_for_event
+      field :primary_for_location
     end
 
     edit do
