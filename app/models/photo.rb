@@ -28,7 +28,6 @@ class Photo < ActiveRecord::Base
           end
         end
     elsif self.primary_for_event?
-      binding.pry
       current_primary = self
       if self.events[0].id
         event_id = self.events[0].id
