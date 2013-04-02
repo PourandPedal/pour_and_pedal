@@ -1,8 +1,6 @@
 /.specjour/rsyncd.pid
 /.bundle
-/config/database.yml
 /coverage
-/db/schema.rb
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /doc/api
