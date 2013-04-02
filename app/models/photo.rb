@@ -15,8 +15,8 @@ class Photo < ActiveRecord::Base
   def set_primary
     if self.primary_for_location?
       current_primary = self
-      if self.locations[0].id
-        location_id = self.locations[0].id
+      if self.location_id
+        location_id = self.location_id
         photos = Photo.where(location_id: location_id, primary_for_location: true)
       else
       end
