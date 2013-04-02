@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130402195335) do
+ActiveRecord::Schema.define(:version => 20130402203246) do
 
   create_table "clients", :force => true do |t|
     t.string   "email"
@@ -99,12 +99,13 @@ ActiveRecord::Schema.define(:version => 20130402195335) do
 
   create_table "photos", :force => true do |t|
     t.integer  "location_id"
-    t.boolean  "is_primary"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.string   "photo"
     t.string   "title"
     t.integer  "event_id"
+    t.boolean  "primary_for_location"
+    t.boolean  "primary_for_event"
   end
 
   create_table "rails_admin_histories", :force => true do |t|

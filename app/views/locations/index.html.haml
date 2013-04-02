@@ -7,7 +7,7 @@
     .span3.eventlisting
       %img
         - location.photos.each do |photo|
-          - if photo.is_primary?
+          - if photo.primary_for_location?
             = image_tag photo.photo.medium, class: 'img-polaroid'
     .span8
       .eventdescription

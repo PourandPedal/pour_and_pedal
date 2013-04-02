@@ -95,8 +95,11 @@ RailsAdmin.config do |config|
       field :photo do
         help 'required'
       end
-      field :is_primary do
-        help 'optional: only one primary photo per event or location'
+      field :primary_for_event do
+        help 'optional: only one primary photo per event'
+      end
+      field :primary_for_location do
+        help 'optional: only one primary photo per location'
       end
       field :events do
         help ''
