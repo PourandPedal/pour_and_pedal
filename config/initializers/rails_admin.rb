@@ -86,7 +86,6 @@ RailsAdmin.config do |config|
     list do
       field :title
       field :photo
-      field :in_gallery
     end
 
     edit do
@@ -98,9 +97,6 @@ RailsAdmin.config do |config|
       end
       field :is_primary do
         help 'optional: only one primary photo per event or location'
-      end
-      field :in_gallery do
-        help 'optional'
       end
       field :events do
         help ''
