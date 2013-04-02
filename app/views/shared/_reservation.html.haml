@@ -1,22 +1,23 @@
 %h1.headline
   Reservation Summary
-%p
-  Confirmation Number: #{confirmation.confirmation_number}
-%p
-  Email: #{confirmation.client.email}
+.explainer
+  %p
+    Confirmation Number: #{confirmation.confirmation_number}
+  %p
+    Email: #{confirmation.client.email}
 
-%ul
-  %li
-    #{confirmation.client.first_name} #{confirmation.client.last_name}
-  %li
-    = confirmation.trip.event.title
-  %li
-    = confirmation.trip.date.to_formatted_s(:long_ordinal)
-  %li
-    #{pluralize(confirmation.client.tickets_purchased, 'ticket')}
-  %li
-    Total amount paid #{number_to_currency(confirmation.client.amount_paid)}
-  %li
-    Directions:
-    = confirmation.trip.event.directions
-  %hr
+  %ul
+    %li
+      #{confirmation.client.first_name} #{confirmation.client.last_name}
+    %li
+      = confirmation.trip.event.title
+    %li
+      = confirmation.trip.date.to_formatted_s(:long_ordinal)
+    %li
+      #{pluralize(confirmation.client.tickets_purchased, 'ticket')}
+    %li
+      Total amount paid #{number_to_currency(confirmation.client.amount_paid)}
+    %li
+      Directions:
+      = confirmation.trip.event.directions
+    %hr

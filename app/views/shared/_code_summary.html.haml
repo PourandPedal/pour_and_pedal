@@ -1,15 +1,15 @@
 %h1.headline
   Redemption Code Summary
+.explainer
+  %p
+    Here are the details for your redemption code:
 
-%p
-  Here are the details for your redemption code:
-
-= confirmation.confirmation_number
-= number_to_currency(confirmation.value)
-%p
-  Expires on
-  = confirmation.expiration_date
-%h2
-  What good is this code if you don't use it?
-%br
-  = link_to "Let's find a trip!", events_path, class: "btn btn-large btn-success"
+  = confirmation.confirmation_number
+  = number_to_currency(confirmation.value)
+  %p
+    Expires on
+    = confirmation.expiration_date
+  %h2
+    What good is this code if you don't use it?
+  %br
+    = link_to "Let's find a trip!", events_path, class: "btn btn-large btn-success"
