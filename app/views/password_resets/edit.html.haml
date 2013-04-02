@@ -10,18 +10,14 @@
         %ul
           - @user.errors.full_messages.each do |msg|
             %li= msg
-    .field
-      = f.label :email
-      %br/
+    %p.lead
       = @user.email
     .field
       = f.label :password
-      %br/
       = f.password_field :password
     .field
       = f.label :password_confirmation
-      %br/
       = f.password_field :password_confirmation
       = hidden_field_tag :token, @token
     .actions
-      = f.submit
+      = f.submit "Submit", class: 'btn btn-danger'
