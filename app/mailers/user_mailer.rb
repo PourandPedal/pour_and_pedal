@@ -14,8 +14,7 @@ class UserMailer < ActionMailer::Base
 
   def reset_password_email(user)
     @user = user
-    @url = "http://pour-and-pedal.herokuapp.com/password_resets/#{user.reset_password_token}/edit"
-    # environment_url(@user)
+    environment_url(@user)
     mail(:to => user.email,
          :subject => "P&P: Your password has been reset")
   end
