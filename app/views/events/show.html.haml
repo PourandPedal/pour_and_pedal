@@ -4,7 +4,7 @@
   = event.title
 %img
   - event.photos.each do |photo|
-    - if photo.primary_for_location?
+    - if photo.primary_for_event?
       = image_tag photo.photo.headline, class: 'img-polaroid'
 %p.description
   = event.description
