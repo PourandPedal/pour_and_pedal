@@ -1,6 +1,7 @@
 class PhotosController < ApplicationController
 
-  expose(:photo)
-  expose(:photos) { Photo.where(in_gallery: true) }
+  def index
+    render layout: 'gallery'
+  end
 
 end

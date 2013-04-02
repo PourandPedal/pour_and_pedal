@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html;charset=iso-8859-1", "http-equiv" => "Content-Type"}
+    %script{:src => "http://www.google.com/jsapi", :type => "text/javascript"}
+    %link{:href => "http://fonts.googleapis.com/css?family=Gochi+Hand", :rel => "stylesheet", :type => "text/css"}/
+    = render 'layouts/typekit'
+    %title [TITLE]
+    = stylesheet_link_tag    'application', 'gallery'
+    = javascript_include_tag 'gallery'
+    = csrf_meta_tags
+    = yield :head
+    /[if IE]
+      = javascript_include_tag 'html5'
+  %body
+    #page
+      = render 'layouts/header'
+      #main
+        .container
+          = render 'flashes'
+          = yield
+      = render 'layouts/footer'

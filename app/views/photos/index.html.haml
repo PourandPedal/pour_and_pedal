@@ -1,16 +1,46 @@
-%h1.headline
-  The Pour & Pedal Gallery
-  / TODO: Flickr integration
-#myPhotoCarousel.carousel.slide
-  / Carousel items
-  .carousel-inner
-    - photos.shuffle!
-    - photos.each do |photo|
-      .item
-        %img
-          = image_tag(photo.photo.gallery, class: 'center')
-  / Carousel nav
-  %a.carousel-control.left{"data-slide" => "prev", :href => "#myPhotoCarousel"} &lsaquo;
-  %a.carousel-control.right{"data-slide" => "next", :href => "#myPhotoCarousel"} &rsaquo;
-.clearfix
-%hr
+.headline
+.polaroid
+  %img{:alt => "Cellar Barrels", :src => "assets/cellar_barrels.jpg"}
+  %p Here's where heaven waits..
+.polaroid
+  %img{:alt => "Couple and Wine", :src => "assets/couple.jpg"}
+  %p Beautiful wine, beautiful day
+.polaroid
+  %img{:alt => "Happy Family and Wine", :src => "assets/happy_family.jpg"}/
+  %p A family that enjoys wine together..
+.span9
+  %h1.explainer
+    Wish you were here..
+.polaroid
+  %img{:alt => "Vineyard Lobby", :src => "assets/inside_vineyard.jpg"}/
+  %p Beauty in the glass and out!
+.polaroid
+  %img{:alt => "Pumpkins and Friends", :src => "assets/pumpkin_wine.jpg"}/
+  %p Pumpkins + great friends = great day!
+.polaroid
+  %img{:alt => "Wine Tank Room", :src => "assets/tank_room.jpg"}/
+  %p The alchemy of heaven!
+.polaroid
+  %img{:alt => "Wine Tasting Patio", :src => "assets/tasting_patio.jpg"}/
+  %p Another taste madamoiselle?
+.polaroid
+  %img{:alt => "Victory in the Vineyard", :src => "assets/victory.jpg"}/
+  %p Victory in the Vineyard!
+.polaroid
+  %img{:alt => "Vineyard Tranquility", :src => "assets/vineyard_2.jpg"}/
+  %p Beauty and tranquility await!
+.polaroid
+  %img{:alt => "Vineyard Patio", :src => "assets/vineyard_3.jpg"}/
+  %p Plenty of space in paradise!
+.polaroid
+  %img{:alt => "Vineyard Grapes", :src => "assets/vineyard_4.jpg"}/
+  %p Where the magic begins..
+.polaroid
+  %img{:alt => "Wine Barrels Await", :src => "assets/vineyard_5.jpg"}/
+  %p This wine is just waiting for you!
+.polaroid
+  %img{:alt => "Wine Tank Room", :src => "assets/vineyard_6.jpg"}/
+  %p Here's where the magic happens!
+.polaroid
+  %img{:alt => "Biking through the Vineyard", :src => "assets/vineyard_ride.jpg"}/
+  %p Pedaling through the vineyard on another beautiful day!
