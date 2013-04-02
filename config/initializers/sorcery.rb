@@ -24,7 +24,7 @@ Rails.application.config.sorcery.configure do |config|
     # reset password email method on your mailer class.
     # Default: `:reset_password_email`
     #
-    user.reset_password_email_method_name = :reset_password_email
+    # user.reset_password_email_method_name = :reset_password_email
 
     # how many seconds before the reset request expires. nil for never expires.
     # Default: `nil`

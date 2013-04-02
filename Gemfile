@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem 'kaminari'
 gem 'mini_magick'
 gem 'rails_admin'
-gem 'sorcery'
+gem "sorcery", "~> 0.7.13"
 gem 'paper_trail'
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'thin'
