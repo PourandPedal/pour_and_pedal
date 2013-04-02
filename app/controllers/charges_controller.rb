@@ -90,10 +90,10 @@ class ChargesController < ApplicationController
       @newclient.save
       @confirmation_number = generate_confirmation_number(@trip, @newclient)
       confirmation_create(@confirmation_number, @newclient, @trip, @quantity)
-      used_code
+      used_code if session[:redemption_code].present?
 
       NotificationMailer.booking_notification(@trip).deliver
-      NotificationMailer.booking_confirmation(@trip, @newclient).deliver
+      NotificationMailer.booking_confirmation(@trip, @newclient).deliver unless @newclient.email.blank?
     end
 
     rescue Stripe::CardError => e
@@ -116,7 +116,7 @@ class ChargesController < ApplicationController
     @confirmation_number = generate_confirmation_number(@trip, @newclient)
 
     confirmation_create(@confirmation_number, @newclient, @trip, @quantity)
-    used_code
+    used_code if session[:redemption_code].present?
 
 
     NotificationMailer.booking_notification(@trip).deliver
