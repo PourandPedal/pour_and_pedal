@@ -126,6 +126,7 @@ GEM
     mime-types (1.21)
     mini_magick (3.5.0)
       subexec (~> 0.2.1)
+    modernizr-rails (2.6.2.1)
     multi_json (1.6.1)
     multipart-post (1.2.0)
     nested_form (0.3.1)
@@ -260,6 +261,7 @@ DEPENDENCIES
   kaminari
   mailcatcher
   mini_magick
+  modernizr-rails
   paper_trail
   pg
   pry-debugger
