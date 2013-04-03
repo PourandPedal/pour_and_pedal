@@ -13,8 +13,8 @@ class ChargesController < ApplicationController
     session[:quantity] = @quantity
     session[:trip_id] = @trip.id
     new_client
+    session[:trip_price] = @trip.price * @quantity
     using_redemption_code(params[:redemption_code]) if params[:redemption_code].present?
-    session[:trip_price] ||= @trip.price
   end
 
   def new_client
@@ -51,7 +51,7 @@ class ChargesController < ApplicationController
   end
 
   def set_trip_price_with_code
-    session[:trip_price] = (@trip.price - @redemption_code.value) unless
+    session[:trip_price] = (session[:trip_price] - @redemption_code.value) unless
     @redemption_code.is_expired? || @redemption_code.is_used? ||
     @redemption_code.is_cancelled?
   end
@@ -66,7 +66,7 @@ class ChargesController < ApplicationController
       @quantity = session[:quantity]
 
       # Amount in cents
-      @amount = (@this_trip_price * 100 * @quantity)
+      @amount = (@this_trip_price * 100)
       @amount = @amount.to_i
 
 
