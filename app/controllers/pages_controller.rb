@@ -9,4 +9,8 @@ class PagesController < ApplicationController
 
   def about
   end
+
+  def upgrade_browser
+    render layout: false
+  end
 end

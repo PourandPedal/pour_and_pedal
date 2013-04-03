@@ -25,6 +25,7 @@ Pourpedal::Application.routes.draw do
 
   match 'faq', to: 'pages#faqs', as: :faq
   match 'about', to: 'pages#about', as: :about
+  match 'upgrade_browser', to: 'pages#upgrade_browser', as: :upgrade_browser
   match '/ui(/:action)', controller: 'ui'
 
   root to: 'pages#index'
