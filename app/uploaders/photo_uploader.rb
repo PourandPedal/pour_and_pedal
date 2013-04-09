@@ -24,6 +24,10 @@ class PhotoUploader < CarrierWave::Uploader::Base
     # image proportions changed
   end
 
+  version :homepage do
+    process :resize_to_limit => [710, 355]
+  end
+
   version :medium do
     process :resize_to_fill => [235, 125]
   end

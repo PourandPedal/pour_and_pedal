@@ -21,6 +21,35 @@ RailsAdmin.config do |config|
   # If you want to track changes on your models:
   config.audit_with :paper_trail, User
 
+  config.model 'HomeImage' do
+    object_label_method do
+      :title
+    end
+    list do
+      field :position
+      field :title
+      field :photo
+    end
+
+    edit do
+      field :position do
+        help 'each position must be unique. To change the photo order first set the position to blank and then set the position of the new image and then reset the position of the old photo. For a photo to not show on the home page, clear the position (no number)'
+      end
+      field :title do
+        help 'required'
+      end
+      field :photo do
+        help 'exact dimensions of 710px wide and 355px high png with transparency'
+      end
+    end
+
+    show do
+      field :position
+      field :title
+      field :photo
+    end
+  end
+
   config.model 'User' do
     object_label_method do
       :name
