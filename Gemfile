@@ -27,6 +27,10 @@ group :assets do
   gem 'modernizr-rails'
 end
 
+group :development do
+  gem 'localtunnel'
+end
+
 group :development, :test do
   # gem 'database_cleaner'
   # gem 'faker'
