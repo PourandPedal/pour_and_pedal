@@ -1,9 +1,17 @@
 %header.navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to image_tag('pourpedal_header_logo.png'), root_path, id: "logo"
+      = link_to image_tag('pourpedal_header_logo_small.png'), root_path, id: "logo"
       %nav
+
         %ul.nav.pull-right
+          %li{:class => "#{'active' if current_page?(about_path)}"}=link_to "about", about_path
+          %li{:class => "#{'active' if current_page?(faq_path)}"}=link_to "faqs", faq_path
+          %li{:class => "#{'active' if current_page?(photos_path)}"}=link_to "gallery", photos_path
+          %li{:class => "#{'active' if current_page?(reviews_path)}"}=link_to "reviews", reviews_path
+          %li{:class => "#{'active' if current_page?(events_path)}"}=link_to "events", events_path
+          %li{:class => "#{'active' if current_page?(locations_path)}"}=link_to "locations", locations_path
+          %li{:class => "#{'active' if current_page?(new_contact_path)}"}=link_to "contact", new_contact_path
           %li
             %a{"data-toggle" => "modal", :href => "#myModal", :role => "button"} redeem
           %li
@@ -11,8 +19,8 @@
           - if logged_in?
             %li
               = link_to "Sign out", logout_path
-          %li
-            .fb-like.pull-right.padfb{"data-font" => "lucida grande", "data-href" => "http://pourandpedal.com", "data-layout" => "button_count", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
+          / %li
+          /   .fb-like.pull-right.padfb{"data-font" => "lucida grande", "data-href" => "http://pourandpedal.com", "data-layout" => "button_count", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
   .clearfix
 #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
