@@ -1,49 +1,34 @@
+.nonmobile
+  .headline
+  .span4
+    %h1.explainer
+      Wish you were here..
+  .span7
+    %h3.explainer
+      drag the photos to see the fun of a pour & pedal trip!
+  - gallery_images.each do |image|
+    .polaroid
+      = image_tag image.photo.gallery
+      %p
+        = image.caption
+
 .headline
-.polaroid
-  %img{:alt => "Cellar Barrels", :src => "assets/cellar_barrels.jpg"}
-  %p Here's where heaven waits..
-.polaroid
-  %img{:alt => "Couple and Wine", :src => "assets/couple.jpg"}
-  %p Beautiful wine, beautiful day
-.polaroid
-  %img{:alt => "Happy Family and Wine", :src => "assets/happy_family.jpg"}/
-  %p A family that enjoys wine together..
-.span4
-  %h1.explainer
-    Wish you were here..
-.span7
-  %h3.explainer
-    drag the photos to see the fun of a pour & pedal trip!
-.polaroid
-  %img{:alt => "Vineyard Lobby", :src => "assets/inside_vineyard.jpg"}/
-  %p Beauty in the glass and out!
-.polaroid
-  %img{:alt => "Pumpkins and Friends", :src => "assets/pumpkin_wine.jpg"}/
-  %p Pumpkins + great friends = great day!
-.polaroid
-  %img{:alt => "Wine Tank Room", :src => "assets/tank_room.jpg"}/
-  %p The alchemy of heaven!
-.polaroid
-  %img{:alt => "Wine Tasting Patio", :src => "assets/tasting_patio.jpg"}/
-  %p Another taste madamoiselle?
-.polaroid
-  %img{:alt => "Victory in the Vineyard", :src => "assets/victory.jpg"}/
-  %p Victory in the Vineyard!
-.polaroid
-  %img{:alt => "Vineyard Tranquility", :src => "assets/vineyard_2.jpg"}/
-  %p Beauty and tranquility await!
-.polaroid
-  %img{:alt => "Vineyard Patio", :src => "assets/vineyard_3.jpg"}/
-  %p Plenty of space in paradise!
-.polaroid
-  %img{:alt => "Vineyard Grapes", :src => "assets/vineyard_4.jpg"}/
-  %p Where the magic begins..
-.polaroid
-  %img{:alt => "Wine Barrels Await", :src => "assets/vineyard_5.jpg"}/
-  %p This wine is just waiting for you!
-.polaroid
-  %img{:alt => "Wine Tank Room", :src => "assets/vineyard_6.jpg"}/
-  %p Here's where the magic happens!
-.polaroid
-  %img{:alt => "Biking through the Vineyard", :src => "assets/vineyard_ride.jpg"}/
-  %p Pedaling through the vineyard on another beautiful day!
+  .mobile
+    .span4
+      %h1.explainer
+        Wish you were here..
+    #myCarousel.carousel.slide
+      .carousel-inner
+        .active.item
+          .polaroidmobile
+            %img{:alt => "pour & pedal wine bike tours", :src => "assets/pplogosquare.jpg"}/
+        - gallery_images.each do |image|
+          .item
+            .polaroidmobile
+              = image_tag image.photo.gallery
+              %p
+                = image.caption
+      %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
+      %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
+    #cta
+      = link_to "find a ride now!", events_path, class: "mybtn btn btn-success"
