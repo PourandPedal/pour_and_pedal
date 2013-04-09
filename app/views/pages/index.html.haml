@@ -7,15 +7,19 @@
     pour & pedal
 #myCarousel.carousel.slide
   .carousel-inner
-    .active.item
-      %img
-        = image_tag(home_images[0].photo.homepage, class: 'center')
-    .item
-      %img
-        = image_tag(home_images[1].photo.homepage, class: 'center')
-    .item
-      %img
-        = image_tag(home_images[2].photo.homepage, class: 'center')
+    - if home_images[0].photo
+      .active.item
+        %img
+          = image_tag(home_images[0].photo.homepage, class: 'center')
+    - if home_images[1].photo
+      .item
+        %img
+          = image_tag(home_images[1].photo.homepage, class: 'center')
+    - if home_images[2].photo
+      .item
+        %img
+          - if home_images[2].photo
+            = image_tag(home_images[2].photo.homepage, class: 'center')
   / Carousel nav
   %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
   %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
