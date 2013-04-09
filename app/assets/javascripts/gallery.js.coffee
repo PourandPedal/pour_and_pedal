@@ -68,7 +68,7 @@ google.setOnLoadCallback ->
       $(this).css cssObj
 
   $(".polaroid").draggable
-    cursor: "crosshair"
+    cursor: "move"
     start: (event, ui) ->
       dragging = true
       zindexnr++
