@@ -12,7 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.mobile
-//= require jquery.ui.touch.min
 //= require bootstrap
 //= require bootstrap-carousel
