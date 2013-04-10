@@ -23,6 +23,7 @@ Pourpedal::Application.routes.draw do
   post '/redeem_code' => 'charges#redeem'
   post '/confirm_booking' => 'charges#create_with_no_balance_due'
 
+  match '/mobile_gallery', to: 'photos#mobile_gallery', as: :mobile_gallery
   match 'faq', to: 'pages#faqs', as: :faq
   match 'about', to: 'pages#about', as: :about
   match 'upgrade_browser', to: 'pages#upgrade_browser', as: :upgrade_browser

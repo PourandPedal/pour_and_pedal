@@ -1,34 +1,12 @@
-.nonmobile
-  .headline
-  .span4
-    %h1.explainer
-      Wish you were here..
-  .span7
-    %h3.explainer
-      drag the photos to see the fun of a pour & pedal trip!
-  - gallery_images.each do |image|
-    .polaroid
-      = image_tag image.photo.gallery
-      %p
-        = image.caption
-
 .headline
-  .mobile
-    .span4
-      %h1.explainer
-        Wish you were here..
-    #myCarousel.carousel.slide
-      .carousel-inner
-        .active.item
-          .polaroidmobile
-            %img{:alt => "pour & pedal wine bike tours", :src => "assets/pplogosquare.jpg"}/
-        - gallery_images.each do |image|
-          .item
-            .polaroidmobile
-              = image_tag image.photo.gallery
-              %p
-                = image.caption
-      %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
-      %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
-    #cta
-      = link_to "find a ride now!", events_path, class: "mybtn btn btn-success"
+.span4
+  %h1.explainer
+    Wish you were here..
+.span7
+  %h3.explainer
+    drag the photos to see the fun of a pour & pedal trip!
+- gallery_images.each do |image|
+  .polaroid
+    = image_tag image.photo.gallery
+    %p
+      = image.caption

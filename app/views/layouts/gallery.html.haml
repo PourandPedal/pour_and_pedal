@@ -2,17 +2,13 @@
 %html
   %head
     %meta{:content => "text/html;charset=iso-8859-1", "http-equiv" => "Content-Type"}
+    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
     %script{:src => "http://www.google.com/jsapi", :type => "text/javascript"}
     %link{:href => "http://fonts.googleapis.com/css?family=Gochi+Hand", :rel => "stylesheet", :type => "text/css"}/
-    %meta{:content => "width=device-width", :name => "viewport"}/
-    %link{:href => "/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
-    %link{:href => "/apple-touch-icon.png", :rel => "apple-touch-icon"}/
-    %link{:href => "/apple-touch-icon-72x72.png", :rel => "apple-touch-icon", :sizes => "72x72"}/
-    %link{:href => "/apple-touch-icon-114x114.png", :rel => "apple-touch-icon", :sizes => "114x114"}/
-    %meta{:content => "width=device-width, initial-scale=1, maximum-scale=1", :name => "viewport"}/
     = render 'layouts/typekit'
     %title [TITLE]
     = stylesheet_link_tag    'application', 'gallery'
+    = stylesheet_link_tag 'application', 'mobile' if mobile_device?
     = javascript_include_tag 'application', 'gallery'
     = csrf_meta_tags
     = yield :head
@@ -23,6 +19,6 @@
       = render 'layouts/header'
       #main
         .container
-          = render 'flashes'
+
           = yield
       = render 'layouts/footer'
