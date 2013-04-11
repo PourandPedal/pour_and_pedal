@@ -13,27 +13,11 @@
           %li{:class => "#{'active' if current_page?(locations_path)}"}=link_to "locations", locations_path
           %li{:class => "#{'active' if current_page?(new_contact_path)}"}=link_to "contact", new_contact_path
           %li
-            %a{"data-toggle" => "modal", :href => "#myModal", :role => "button"} redeem
-          %li
             %a{"data-toggle" => "modal", :href => "#myreservation", :role => "button"} my reservation
           - if logged_in?
             %li
               = link_to "Sign out", logout_path
-          / %li
-          /   .fb-like.pull-right.padfb{"data-font" => "lucida grande", "data-href" => "http://pourandpedal.com", "data-layout" => "button_count", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
   .clearfix
-#myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3#myModalLabel Enter your redemption code
-  .modal-body
-    %p
-      = form_tag '/codes' do
-        = text_field_tag :code
-        %br
-        = submit_tag "Submit", class: 'btn btn-danger'
-        %br
-          = image_tag('wine-bike-small.png', class: 'pull-right')
 #myreservation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
