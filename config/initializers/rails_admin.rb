@@ -308,8 +308,8 @@ RailsAdmin.config do |config|
       field :created_by do
         help 'the creator of the confirmation number, either an employee name or the client directly through the website'
       end
-      field :value do
-        help 'dollar amount in decimials (i.e. 125, 125.0, or 125.00) this will be the amount of discount the code allows or the dollar value of the reservation.'
+      field :number_of_tickets do
+        help 'This is how many tickets this code is worth.'
       end
       field :is_cancelled do
         help 'check this box to instantly cancel any confirmation/code'

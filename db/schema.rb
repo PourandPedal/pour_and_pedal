@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130412061951) do
+ActiveRecord::Schema.define(:version => 20130412224718) do
 
   create_table "clients", :force => true do |t|
     t.string   "email"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130412061951) do
     t.date     "redeemed_on"
     t.integer  "trip_id"
     t.integer  "gift_certificate_id"
+    t.integer  "number_of_tickets"
   end
 
   create_table "contacts", :force => true do |t|

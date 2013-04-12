@@ -85,6 +85,8 @@ class ChargesController < ApplicationController
     @redemption_code = Confirmation.find_by_confirmation_number(redemption_code)
     if @redemption_code && !@redemption_code.is_used?
       check_redemption_code_validity(@redemption_code)
+
+
       set_trip_price_with_code
       session[:redemption_code] = @redemption_code.id
     elsif @redemption_code && @redemption_code.is_used?
@@ -103,24 +105,29 @@ class ChargesController < ApplicationController
   end
 
   def set_trip_price_with_code
-    session[:trip_price] = (session[:trip_price] - @redemption_code.value) unless
+    session[:trip_quantity] = (session[:quantity] - @redemption_code.number_of_tickets) unless
     @redemption_code.is_expired? || @redemption_code.is_used? ||
     @redemption_code.is_cancelled?
+    session[:trip_price] = session[:trip_quantity] * @trip.price
   end
 
   def create
-    if session[:trip_price] && session[:trip_price] <= 0
-      create_with_no_balance_due
+    @trip = Trip.find(session[:trip_id])
+    @quantity = session[:quantity]
+    if session[:trip_quantity] && (session[:trip_quantity] > 0)
+      @trip_quantity = session[:trip_quantity]
+      @this_trip_price = @trip.price * (@quantity - @trip_quantity)
     else
       @this_trip_price = session[:trip_price]
+    end
+    if @this_trip_price && @this_trip_price <= 0
+      create_with_no_balance_due
+    else
       @newclient = Client.find(session[:new_client_id])
-      @trip = Trip.find(session[:trip_id])
-      @quantity = session[:quantity]
 
       # Amount in cents
       @amount = (@this_trip_price * 100)
       @amount = @amount.to_i
-
 
       customer = Stripe::Customer.create(
         :email => @newclient.email,
@@ -178,7 +185,8 @@ class ChargesController < ApplicationController
   def confirmation_create(confirmation, client, trip, quantity)
     Confirmation.create!(confirmation_number: confirmation,
       client_id: client.id, is_used: false, is_expired: false, source: "Website",
-      created_by: "Client", value: client.amount_paid, trip_id: trip.id)
+      created_by: "Client", value: client.amount_paid, trip_id: trip.id,
+      number_of_tickets: @quantity)
 
     trip.tickets_sold = 0 unless trip.tickets_sold
     trip.update_attributes(tickets_sold: (trip.tickets_sold + quantity))

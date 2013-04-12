@@ -26,7 +26,7 @@
                   #{link_to "Go back and try again", event_path(@trip.event)} or continue with booking this trip.
               - else
                 %h2
-                  Your code is worth #{number_to_currency(@redemption_code.value)} which leaves a remaining balance of
+                  Your code is worth #{pluralize(@redemption_code.number_of_tickets, 'ticket')} which leaves a remaining balance of
                   - if session[:trip_price] > 0
                     #{number_to_currency(session[:trip_price])}.
                   - else
