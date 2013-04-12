@@ -4,6 +4,7 @@ class Client < ActiveRecord::Base
 
   has_one :trip, through: :confirmation
   has_one :confirmation
+  belongs_to :gift_certificate
 
   has_paper_trail
 

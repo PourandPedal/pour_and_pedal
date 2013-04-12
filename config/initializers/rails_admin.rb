@@ -165,6 +165,52 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model 'GiftCertificate' do
+    object_label_method do
+      :recipient_last_name
+    end
+
+    list do
+      field :recipient_first_name
+      field :recipient_last_name
+      field :number_purchased
+    end
+
+    edit do
+      field :recipient_first_name do
+        help ''
+      end
+      field :recipient_last_name do
+        help ''
+      end
+      field :recipient_email do
+        help ''
+      end
+      field :number_purchased do
+        help ''
+      end
+      field :price_paid do
+        help ''
+      end
+      field :special_message do
+        help ''
+      end
+      field :confirmation do
+        help ''
+      end
+    end
+
+    show do
+      field :recipient_first_name
+      field :recipient_last_name
+      field :recipient_email
+      field :number_purchased
+      field :price_paid
+      field :special_message
+      field :confirmation
+    end
+  end
+
   config.model 'Trip' do
     list do
       field :event

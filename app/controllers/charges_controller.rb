@@ -4,6 +4,47 @@ class ChargesController < ApplicationController
     @trip = Trip.find(params[:trip_id])
   end
 
+  def gift_certificate_charge
+    @cert = GiftCertificate.find(session[:gift_certificate_id])
+    @client = Client.find(session[:client_id])
+    @amount = (@cert.number_purchased * 125 * 100)
+    @amount = @amount.to_i
+
+
+    customer = Stripe::Customer.create(
+      :email => @client.email,
+      :card  => params[:stripeToken]
+    )
+
+    charge = Stripe::Charge.create(
+      :customer    => customer.id,
+      :amount      => @amount,
+      :description => "Gift Certificate",
+      :currency    => 'usd'
+    )
+
+    @client.stripe_id = customer.id
+    @client.amount_paid = (@amount/100)
+    @client.gifts_purchased = @cert.number_purchased
+    @client.date_paid = Date.today
+    @cert.date_purchased = Date.today
+    @client.save
+    @confirmation_number = (rand(1000000) + 2013).to_s + "gift" + @client.id.to_s
+    confirm = Confirmation.create!(confirmation_number: @confirmation_number,
+      client_id: @client.id, is_used: false, is_expired: false, source: "Website",
+      created_by: "Client", value: @client.amount_paid, gift_certificate_id: @cert.id)
+    @cert.confirmation_id = confirm.id
+    @cert.price_paid = @client.amount_paid
+    @cert.save
+
+    # NotificationMailer.booking_notification(@trip).deliver
+    # NotificationMailer.booking_confirmation(@trip, @newclient).deliver unless @newclient.email.blank?
+
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to gift_certificate_charge_path
+  end
+
   def new
     session[:redemption_code_is_used] = nil
     session[:code_not_found] = nil
@@ -25,6 +66,17 @@ class ChargesController < ApplicationController
     email = params[:email]
     @newclient = Client.new(first_name: first_name, last_name: last_name,
       zipcode: zip, phone: phone, email: email)
+    @newclient.save
+    session[:new_client_id] = @newclient.id
+  end
+
+  def new_gift_recipient_client
+    first_name = params[:giver_first_name]
+    last_name = params[:giver_last_name]
+    zip = params[:giver_zipcode]
+    email = params[:giver_email]
+    @newclient = Client.new(first_name: first_name, last_name: last_name,
+      zipcode: zip, email: email)
     @newclient.save
     session[:new_client_id] = @newclient.id
   end

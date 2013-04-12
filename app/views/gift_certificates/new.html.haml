@@ -1,0 +1,34 @@
+%h1.headline
+  The perfect gift for the wine enthusiast!
+.explainer
+  %h2
+    Pour & Pedal gift certificates make it easy to give the gift of wine, bicycling and fun.
+  %p
+    Your lucky recipient will receive an email with a redemption code that can be used to reserve a spot for one of our great #{link_to "pour & pedal events", events_path}.
+  %p
+    Gift certificates cost just $125 per ticket and can be used for any pour & pedal event.
+  %hr
+  .span4
+    = form_for gift_certificate do |f|
+      = fields_for :client do |builder|
+        %p.lead About You
+        = builder.label :first_name, 'Your First Name'
+        = builder.text_field :first_name
+        = builder.label :last_name, 'Your Last Name'
+        = builder.text_field :last_name
+        = builder.label :email, "Your Email"
+        = builder.email_field :email
+      %p.lead How many tickets would you like to give this recipient?
+      = f.select :number_purchased, options_for_select(1..20)
+      %p.lead About your Recipient
+      = f.label :recipient_first_name, "Recipient's First Name"
+      = f.text_field :recipient_first_name
+      = f.label :recipient_last_name, "Recipient's Last Name"
+      = f.text_field :recipient_last_name
+      = f.label :recipient_email, "Recipient's Email"
+      = f.email_field :recipient_email
+      = f.label :special_message, "Enter a special message for your recipient"
+      = f.text_area :special_message, rows: 10
+      .clearfix
+      = f.submit "Continue", class: 'btn-success pull-right'
+  %hr

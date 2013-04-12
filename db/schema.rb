@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130409225018) do
+ActiveRecord::Schema.define(:version => 20130412061951) do
 
   create_table "clients", :force => true do |t|
     t.string   "email"
@@ -19,13 +19,15 @@ ActiveRecord::Schema.define(:version => 20130409225018) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "zipcode"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
     t.decimal  "amount_paid"
     t.datetime "date_paid"
     t.string   "stripe_id"
     t.integer  "tickets_purchased"
     t.integer  "trip_id"
+    t.integer  "gifts_purchased"
+    t.integer  "gift_certificate_id"
   end
 
   create_table "confirmations", :force => true do |t|
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130409225018) do
     t.boolean  "is_cancelled"
     t.date     "redeemed_on"
     t.integer  "trip_id"
+    t.integer  "gift_certificate_id"
   end
 
   create_table "contacts", :force => true do |t|
@@ -96,6 +99,21 @@ ActiveRecord::Schema.define(:version => 20130409225018) do
     t.string   "caption"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "gift_certificates", :force => true do |t|
+    t.string   "recipient_last_name"
+    t.string   "recipient_email"
+    t.integer  "client_id"
+    t.integer  "confirmation_id"
+    t.date     "date_purchased"
+    t.date     "date_redeemed"
+    t.integer  "number_purchased"
+    t.decimal  "price_paid"
+    t.text     "special_message"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+    t.string   "recipient_first_name"
   end
 
   create_table "home_images", :force => true do |t|
