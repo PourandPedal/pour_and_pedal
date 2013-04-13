@@ -37,8 +37,8 @@ class ChargesController < ApplicationController
     @cert.price_paid = @client.amount_paid
     @cert.save
 
-    # NotificationMailer.booking_notification(@trip).deliver
-    # NotificationMailer.booking_confirmation(@trip, @newclient).deliver unless @newclient.email.blank?
+    NotificationMailer.new_gift_certificate_confirmation(@client, @cert).deliver unless @client.email.blank?
+    NotificationMailer.new_gift_certificate_recipient(@client, @cert).deliver unless @cert.recipient_email.blank?
 
   rescue Stripe::CardError => e
     flash[:error] = e.message

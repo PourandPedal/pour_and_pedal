@@ -23,4 +23,18 @@ class NotificationMailer < ActionMailer::Base
     @url = 'http://pour-and-pedal.herokuapp.com/admin'
     mail(to: 'pour@icouch.me', subject: "New P&P Review Submitted")
   end
+
+  def new_gift_certificate_confirmation(client, certificate)
+    @sender = client
+    @recipient = certificate
+    mail(to: @sender.email, subject: "P&P: Your gift certificate purchase")
+  end
+
+  def new_gift_certificate_recipient(client, certificate)
+    @sender = client
+    @recipient = certificate
+    mail(to: @recipient.recipient_email, subject: "A gift from #{@sender.first_name} #{@sender.last_name}!")
+  end
+
+
 end

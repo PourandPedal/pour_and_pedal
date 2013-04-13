@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Congratulations! <%= @sender.first_name %> <%= @sender.last_name %> gave you a pour & pedal gift certificate!</h1>
+    <p>
+      This gift certificate is good for <%= pluralize(@recipient.number_purchased, 'ticket') %> on any <%= link_to "pour & pedal ride", 'http://pourandpedal.com/events' %>!
+    </p>
+    <p>
+      Confirmation number: <strong><%= @recipient.confirmation.confirmation_number %></strong><br><span> When you select a trip and are on the booking form, simply enter your confirmation number in the "Redemption Code" box at the bottom of the form and you'll be all set!</p>
+    <p>
+      Also, <%= @sender.first_name %> wanted us to pass along the following special message:
+    </p>
+    <h3>
+      <%= @recipient.special_message %>
+    </h3>
+
+    <p> For any questions, please feel free to <%= mail_to "info@pourandpedal.com", 'email us' %>.
+    <p>With love and affection,</p>
+    <p>pour & pedal</p>
+  </body>
+</html>

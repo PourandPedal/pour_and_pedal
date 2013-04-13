@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>You are amazing! You've successfully sent a pour & pedal gift certificate</h1>
+    <p>
+      Recipient: <%= @recipient.recipient_first_name %> <%= @recipient.recipient_last_name %>
+    </p>
+    <p>
+      Confirmation number: <strong><%= @recipient.confirmation.confirmation_number %></strong><br><br><span> <%= @recipient.recipient_first_name %> was emailed this number, but in case they don't recieve the email, they can use this number when they book a trip. They'll enter this number in the redemption code section of the booking form.</span>
+    <p>
+      Number of tickets: This gift certificate is good for <%= pluralize(@recipient.number_purchased, 'ticket') %>
+    <p>
+      Price you paid: <%= number_to_currency(@sender.amount_paid) %>
+    </p>
+    <p> For any questions, please feel free to <%= mail_to "info@pourandpedal.com", 'email us' %>.
+    <p>With love and affection,</p>
+    <p>pour & pedal</p>
+  </body>
+</html>
