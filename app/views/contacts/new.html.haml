@@ -1,8 +1,12 @@
 %h1.headline
   have a question?
 %h2
-  for special group rates and reservations, please call 646-258-0112
-.span4
+  For private events or group rates at our New Jersey locations, please call 732-687-3739
+%h2
+  For private events or group rates at our New York locations, please call 516-987-8751
+%h2
+  For all other inquiries, please e-mail us at #{mail_to "info@pourandpedal.com", "info@pourandpedal.com"} or use the form below
+.span3.explainer
   %form.form-horizontal
   = form_for contact do |f|
     = f.label :first_name
@@ -15,4 +19,4 @@
     = f.telephone_field :phone
     = f.label :message, "Your message"
     = f.text_area :message, rows: 15, class: 'input-xxlarge'
-    = f.submit "send message", class: 'btn btn-large btn-success'
+    = f.submit "send message", class: 'btn btn-large btn-success pull-right'
