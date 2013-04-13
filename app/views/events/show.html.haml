@@ -23,7 +23,7 @@
           - if e.date > Date.today + 1
             %tr
               %td
-                = link_to e.title, '#'
+                = e.title
               %td
                 = number_to_currency(e.price)
               - if e.spots_available > 0
