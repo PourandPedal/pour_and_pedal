@@ -97,9 +97,12 @@ class ChargesController < ApplicationController
   end
 
   def check_redemption_code_validity(redemption_code)
-    if redemption_code.expiration_date < Date.today
-      redemption_code.is_expired = true
-      redemption_code.save
+    if redemption_code.expiration_date
+      if redemption_code.expiration_date < Date.today
+        redemption_code.is_expired = true
+        redemption_code.save
+      else
+      end
     else
     end
   end
