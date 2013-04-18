@@ -10,8 +10,7 @@
           - if photo.primary_for_location?
             = image_tag photo.photo.medium, class: 'img-polaroid'
     .span8
-      .eventdescription
-        %li
-          = truncate location.description, length: 1000
-          = link_to 'read more', location
+      .eventdescription.explainer
+        = truncate location.description, length: 1000
+        = link_to 'read more', location
     %hr

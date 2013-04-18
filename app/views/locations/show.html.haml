@@ -18,10 +18,9 @@
           - if photo.primary_for_location?
             = link_to (image_tag photo.photo.medium, class: 'img-polaroid'), event_path(event)
     .span8
-      .eventdescription
-        %li
-          = truncate event.description, length: 500
-          = link_to 'read more', event
+      .eventdescription.explainer
+        = truncate event.description, length: 500
+        = link_to 'read more', event
 - else
   %h2.explainer
     We're sorry, there aren't yet any events at this location.

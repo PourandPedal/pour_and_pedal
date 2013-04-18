@@ -10,7 +10,7 @@
           - if photo.primary_for_event?
             = link_to (image_tag photo.photo.medium, class: 'img-polaroid'), event_path(event)
     .span8
-      .eventdescription
+      .eventdescription.explainer
         %li
           = truncate event.description, length: 500
           = link_to 'read more', event
