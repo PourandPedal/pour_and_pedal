@@ -33,6 +33,7 @@ Pourpedal::Application.routes.draw do
   match 'about', to: 'pages#about', as: :about
   match 'upgrade_browser', to: 'pages#upgrade_browser', as: :upgrade_browser
   match '/ui(/:action)', controller: 'ui'
+  match '/directions', to: 'pages#directions', as: :directions
 
   root to: 'pages#index'
 

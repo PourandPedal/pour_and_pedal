@@ -10,7 +10,7 @@
           %li{:class => "#{'active' if current_page?(photos_path)}"}=link_to "gallery", photos_path
           %li{:class => "#{'active' if current_page?(reviews_path)}"}=link_to "reviews", reviews_path
           %li{:class => "#{'active' if current_page?(events_path)}"}=link_to "events", events_path
-          %li{:class => "#{'active' if current_page?(locations_path)}"}=link_to "locations", locations_path
+          %li{:class => "#{'active' if current_page?(locations_path)}"}=link_to "directions", directions_path
           %li{:class => "#{'active' if current_page?(new_contact_path)}"}=link_to "contact", new_contact_path
           %li
             %a{"data-toggle" => "modal", :href => "#myreservation", :role => "button"} my reservation

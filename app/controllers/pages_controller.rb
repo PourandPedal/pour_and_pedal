@@ -17,4 +17,7 @@ class PagesController < ApplicationController
   def upgrade_browser
     render layout: false
   end
+
+  def directions
+  end
 end
