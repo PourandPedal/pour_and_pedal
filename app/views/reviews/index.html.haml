@@ -1,24 +1,27 @@
 %h1.headline
   reviews
-%p.pull-right
-  = link_to "submit your review", new_review_path, class: 'btn btn-success'
 .paddtop
-%p.headlinetext
-  Pour & Pedal bike tours are awesome! But don't take our word for it; here's what our clients have to say..
-.paddtop
-.span12
-  - reviews.each do |review|
-    - if review.featured?
-      %p.winecolor.paddtop
-        = review.content
-    - else
-      %p
-      = review.content
-    %h3.pull-right
-      - if review.hometown.blank?
-        #{review.name}
+.span8
+  %p.headlinetext
+    Pour & Pedal bike tours are awesome! But don't take our word for it; here's what our clients have to say..
+  %p.pull-right
+    = link_to "submit your review", new_review_path, class: 'btn btn-success'
+  .paddtop
+  .span6
+    - reviews.each do |review|
+      - if review.featured?
+        %p.winecolor.paddtop
+          = review.content
       - else
-        #{review.name}, #{review.hometown}
-    .clearfix.borderline
-  .center
-    = paginate reviews
+        %p
+        = review.content
+      %h3.pull-right
+        - if review.hometown.blank?
+          #{review.name}
+        - else
+          #{review.name}, #{review.hometown}
+      .clearfix.borderline
+    .center
+      = paginate reviews
+.span3
+  = render 'shared/trip_advisor'
