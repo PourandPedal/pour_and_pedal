@@ -2,16 +2,18 @@
   our events
 %ul
   - events.each do |event|
-    .span3.eventlisting
-      %h3
-        = link_to event.title, event
-      %img
-        - event.photos.each do |photo|
-          - if photo.primary_for_event?
-            = link_to (image_tag photo.photo.medium, class: 'img-polaroid'), event_path(event)
-    .span8
-      .eventdescription.explainer
-        %li
-          = truncate event.description, length: 500
-          = link_to 'read more', event
-    %hr
+    .span12.borderline.paddbottom
+      .span3.eventlisting
+        %h3.headlinetext
+          = link_to event.title, event
+        %img
+          - event.photos.each do |photo|
+            - if photo.primary_for_event?
+              = link_to (image_tag photo.photo.medium, class: 'img-polaroid'), event_path(event)
+      .span8
+        .eventdescription
+          %li
+            = truncate event.description, length: 500
+            = link_to 'read more', event
+    .clearfix
+

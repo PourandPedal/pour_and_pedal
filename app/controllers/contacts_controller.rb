@@ -1,6 +1,7 @@
 class ContactsController < ApplicationController
 
   expose(:contact)
+  layout 'pages'
 
   def create
     if contact.save

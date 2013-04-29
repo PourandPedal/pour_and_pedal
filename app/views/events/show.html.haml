@@ -1,7 +1,7 @@
-%p.pull-right.goback
-  = link_to "back to event listings", events_path
 %h1.headline
   = event.title
+%p.pull-right.goback
+  = link_to "back to event listings", events_path
 %img
   - event.photos.each do |photo|
     - if photo.primary_for_event?

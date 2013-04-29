@@ -1,1 +1,13 @@
-directions.html.haml
+%h1.headline
+  directions
+%ul
+  - events.each do |event|
+    .span12.borderline.paddbottom
+      .span3.eventlisting
+        %h3.headlinetext
+          = event.title
+      .span8
+        .eventdescription
+          %li
+            = event.directions
+    .clearfix

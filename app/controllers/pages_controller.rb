@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   expose(:home_image)
   expose(:home_images)
+  expose(:events)
 
   def index
     home_images.sort!{|i1,i2| i1.position <=> i2.position}
