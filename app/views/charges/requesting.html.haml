@@ -1,5 +1,6 @@
+- provide(:title, "Reserving for #{@trip.event.title}")
 %h1.headline
-  Reserving for #{@trip.event.title}
+  reserving for #{@trip.event.title}
 %h2
   #{@trip.date.to_formatted_s(:long_ordinal)}
 .span3.explainer

@@ -6,7 +6,8 @@
     %script{:src => "http://www.google.com/jsapi", :type => "text/javascript"}
     %link{:href => "http://fonts.googleapis.com/css?family=Gochi+Hand", :rel => "stylesheet", :type => "text/css"}/
     = render 'layouts/typekit'
-    %title [TITLE]
+    %title
+      = full_title(yield(:title))
     = stylesheet_link_tag    'application', 'gallery'
     = stylesheet_link_tag 'application', 'mobile' if mobile_device?
     = javascript_include_tag 'application', 'gallery'
