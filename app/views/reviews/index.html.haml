@@ -3,25 +3,22 @@
 %p.pull-right
   = link_to "submit your review", new_review_path, class: 'btn btn-success'
 .paddtop
-.subheader
-  %p.lead
-    Pour & Pedal bike tours are awesome! But don't take our word for it; here's what our clients have to say..
+%p.headlinetext
+  Pour & Pedal bike tours are awesome! But don't take our word for it; here's what our clients have to say..
 .paddtop
-- reviews.each do |review|
-  .explainer
+.span12
+  - reviews.each do |review|
     - if review.featured?
-      %p.lead
+      %p.winecolor.paddtop
         = review.content
     - else
       %p
       = review.content
-    %h3
+    %h3.pull-right
       - if review.hometown.blank?
         #{review.name}
       - else
         #{review.name}, #{review.hometown}
-  %hr
-.center
-  = paginate reviews
-.paddtop
-%hr
+    .clearfix.borderline
+  .center
+    = paginate reviews
