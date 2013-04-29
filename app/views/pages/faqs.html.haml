@@ -2,9 +2,9 @@
   frequently asked questions
 %h2
   if your question isn't answered here, please #{link_to "contact us", new_contact_path}!
-.explainer
-  - @faqs.each do |faq|
-    %dd.lead
-      = faq.question
-    %dl
-      = faq.answer
+
+- @faqs.each do |faq|
+  %p.headlinetext
+    = faq.question
+  %p
+    = faq.answer
