@@ -3,6 +3,8 @@ class ReviewsController < ApplicationController
   expose(:review)
   expose(:reviews) { Review.order("featured").page(params[:page]).per(5)}
 
+  layout 'pages'
+
   def show
   end
 

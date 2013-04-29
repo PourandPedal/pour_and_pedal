@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    = render 'layouts/typekit'
+    %title [TITLE]
+    = stylesheet_link_tag 'application', 'pages'
+    = javascript_include_tag 'application', 'sparkle', 'home'
+    = csrf_meta_tags
+    = yield :head
+    /[if IE]
+      = javascript_include_tag 'html5'
+  %body
+    #fb-root
+    :javascript
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    #page
+      = render 'layouts/header'
+      #main
+        .container
+          = render 'flashes'
+          = yield
+      = render 'layouts/footer'

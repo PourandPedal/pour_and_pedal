@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def index
     home_images.sort!{|i1,i2| i1.position <=> i2.position}
+    render layout: 'application'
   end
 
   def faqs
@@ -12,6 +13,7 @@ class PagesController < ApplicationController
   end
 
   def about
+    render layout: 'pages'
   end
 
   def upgrade_browser

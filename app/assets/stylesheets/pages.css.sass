@@ -1,0 +1,445 @@
+@import "bootstrap"
+
+/* universal */
+
+html, body
+  padding: 0
+  margin: 0
+  height: 100%
+#page
+  min-height: 100%
+  height: 100%
+  position: relative
+#main
+  padding-bottom: 75px
+
+html
+  color: #3f3d32
+body
+  h1
+    font-family: 'Rokkitt', serif
+    font-weight: 700
+    font-style: normal
+    color: #3f3d32
+  h2
+    font-family: 'Rokkitt', serif
+    font-weight: 400
+    font-style: normal
+    color: #3f3d32
+  h3
+    font-family: cursive
+    font-weight: 400
+    font-style: normal
+    font-size: 2em
+  h4
+    font-family: 'Rokkitt', serif
+    font-weight: 400
+    font-style: normal
+    color: #3f3d32
+    font-size: 3em
+    line-height: 1
+  hr
+    padding: 50px 0 50px 0
+    clear: both
+    border: 0
+    background: transparent url('img-hr.png') no-repeat scroll 50% 50%
+    background-repeat-x: no-repeat
+    background-repeat-y: no-repeat
+    background-attachment: scroll
+    background-position-x: 50%
+    background-position-y: 50%
+    background-origin: initial
+    background-clip: initial
+    color: transparent
+    height: 12px
+
+  padding-top: 60px
+  background: url('pages_texture.jpg') repeat-x center top
+  -webkit-background-size: auto, cover
+  -moz-background-size: auto, cover
+  -o-background-size: auto, cover
+  background-size: auto, cover
+section
+  overflow: auto
+textarea
+  resize: vertical
+.center
+  margin-left: auto
+  margin-right: auto
+  text-align: center
+
+#readmoretext
+  display: none
+#readless
+  display: none
+
+#hometext
+  margin-top: 48px
+
+.smaller
+  font-size: 1.3em
+
+.wine
+  background-color: #761149
+
+.flash
+  text-align: center
+  padding-top: 18px
+  height: 50px
+  font-size: 1.2em
+  color: #FFF8DC
+  background-color: #6f123e
+  -moz-box-shadow: 5px 3px 5px #6f123e
+  -webkit-box-shadow: 5px 3px 5px #6f123e
+  box-shadow: 5px 3px 5px #6f123e
+
+.landingimages
+  padding-top: 50px
+
+.explainer
+  opacity: 0.8
+  width: 75%
+  text-align: justify
+  text-justify: inter-word
+  margin-left: auto
+  margin-right: auto
+  padding: 18px 36px
+  background-color: #fafae2
+  -moz-box-shadow: 2px 2px 5px #6f123e
+  -webkit-box-shadow: 2px 2px 5px #6f123e
+  box-shadow: 2px 2px 5px #6f123e
+  -moz-border-radius: 0.5em
+  -ms-border-radius: 0.5em
+  -o-border-radius: 0.5em
+  -webkit-border-radius: 0.5em
+  border-radius: 0.5em
+  h3
+    text-align: right
+    font-size: 1.5em
+
+.maxheight
+  height: 350px
+  overflow: auto
+
+#forgotform
+  display: none
+
+#nevermind
+  display: none
+
+table
+  opacity: 0.8
+  margin-left: auto
+  margin-right: auto
+  background-color: #fafae2
+  -moz-box-shadow: 2px 2px 5px #6f123e
+  -webkit-box-shadow: 2px 2px 5px #6f123e
+  box-shadow: 2px 2px 5px #6f123e
+  -moz-border-radius: 0.5em
+  -ms-border-radius: 0.5em
+  -o-border-radius: 0.5em
+  -webkit-border-radius: 0.5em
+  border-radius: 0.5em
+
+.table
+  th, td
+    padding: 8px
+    line-height: 20px
+    text-align: left
+    vertical-align: top
+    border: none
+    padding-left: 18px
+  td
+    padding-bottom: 24px
+
+
+.subheader
+  opacity: 0.8
+  width: 75%
+  text-align: justify
+  text-justify: inter-word
+  margin-left: auto
+  margin-right: auto
+  padding: 18px 36px
+  background-color: #fafae2
+  border: .5em solid #6f123e
+  -moz-border-radius: 0.5em
+  -ms-border-radius: 0.5em
+  -o-border-radius: 0.5em
+  -webkit-border-radius: 0.5em
+  border-radius: 0.5em
+
+.goback
+  margin-top: 18px
+
+.wine
+  color: #761149
+
+.carousel-control
+  background: #761149
+  opacity: 1.0
+
+.headlinetext
+  color: #761149
+  font-family: 'Rokkitt', serif
+  font-weight: 400
+  font-style: normal
+  font-size: 24px
+
+#myPhotoCarousel
+  height: 600px
+
+.eventlisting
+  h3
+    font-family: 'Rokkitt', serif
+    font-weight: 400
+    font-style: normal
+    color: #3f3d32
+    text-align: center
+    margin-bottom: 0px
+
+.btn-danger
+  background-color: #6f123e
+  background-image: -moz-linear-gradient(top, #ee5f5b, #6f123e)
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#6f123e))
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #6f123e)
+  background-image: -o-linear-gradient(top, #ee5f5b, #6f123e)
+  background-image: linear-gradient(to bottom, #ee5f5b, #6f123e)
+  background-repeat: repeat-x
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFEE5F5B', endColorstr='#FFBD362F', GradientType=0)
+  border-color: #bd362f #bd362f #802420
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25)
+  *background-color: #6f123e
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false)
+
+.btn-wine
+  background-color: #761149
+
+#cta
+  margin-left: auto
+  margin-right: auto
+  width: 326px
+  color: #fafae2
+  margin-top: 62px
+
+.mybtn
+  line-height: 50px
+  font-size: 2em
+  margin-left: auto
+  margin-right: auto
+  width: 300px
+  height: 50px
+  color: #fafae2
+
+.hero-unit
+  padding-top: 36px
+  background-color: transparent
+  margin-bottom: 0
+  h1
+    font-size: 5em
+    line-height: .4
+  h2
+    font-size: 2em
+    margin-bottom: 8px
+    text-align: left
+
+.headline
+  margin-top: 36px
+
+.description
+  padding: 36px 0 9px 0
+
+.eventdescription
+  padding-top: 36px
+
+.price
+  padding: 0 0 18px 0
+  font-weight: bold
+  text-align: right
+
+.spots
+  text-align: center
+  font-weight: bold
+  font-size: 1em
+
+.btn-success
+  background: url(green-go-button.png)
+  font-family: 'Rokkitt', serif
+  font-weight: 400
+  font-style: normal
+  color: white
+  letter-spacing: 2px
+
+
+
+/* typography */
+h1
+  font-size: 3em
+  letter-spacing: -2px
+  margin-bottom: 30px
+  text-align: center
+h2
+  font-size: 1.7em
+  letter-spacing: -1px
+  text-align: center
+  font-weight: normal
+  color: #999
+p
+  font-size: 1.1em
+  line-height: 1.7em
+
+/* header */
+#logo
+  float: left
+  margin-right: 10px
+  font-size: 1.7em
+  color: blue
+  text-transform: uppercase
+  letter-spacing: -1px
+  padding-top: 9px
+  font-weight: bold
+  line-height: 1
+#logo:hover
+  color: red
+  text-decoration: none
+
+.padfb
+  margin-top: 9px
+
+.navbar-fixed-top
+  border-bottom: 1px solid #6f123e
+
+small
+  margin-top: 18px
+  margin-left: 72px
+  color: #FFF8DC
+
+.paddtop
+  margin-top: 92px
+
+.shortpadtop
+  margin-top: 36px
+
+/* footer */
+
+#wine-bottles
+  background: url(wine-bike.png) top right no-repeat
+  background-position:fixed
+
+.fixie
+  position: fixed
+
+.pagination ul >
+  li >
+    a, span
+      float: left
+      padding: 4px 12px
+      line-height: 20px
+      text-decoration: none
+      background-color: #85a8be
+      border: 1px solid #6f123e
+      border-left-width: 0
+    a
+      &:hover, &:focus
+        background-color: #6f123e
+        color: white
+  .active >
+    a, span
+      background-color: whitesmoke
+.error_messages
+  background-color: #9a5977
+  color: white
+  -moz-box-shadow: 2px 3px 5px #6f123e
+  -webkit-box-shadow: 2px 3px 5px #6f123e
+  box-shadow: 2px 3px 5px #6f123e
+  -moz-border-radius: 0.5em
+  -ms-border-radius: 0.5em
+  -o-border-radius: 0.5em
+  -webkit-border-radius: 0.5em
+  border-radius: 0.5em
+  padding:  18px
+  margin-bottom: 18px
+  ul
+    text-align: center
+    li
+      font-size: 1.3em
+  h2
+    color: #FFF8DC
+    font-size: 2em
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
+
+footer
+  position: relative
+  background-color: #6f123e
+  width: 100%
+  bottom: 0
+  height: 33px
+  margin-top: 36px
+  .padright
+    margin-right: 36px
+.active
+  a
+    color: #a8708b
+    border: .1em solid #e5e5e5
+    background-color: #FFF8DC
+    background-image: -moz-linear-gradient(top, #ffffff, #FFF8DC)
+    background-image: -ms-linear-gradient(top, #ffffff, #FFF8DC)
+    background-image: -o-linear-gradient(top, #ffffff, #FFF8DC)
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#FFF8DC))
+    background-image: -webkit-linear-gradient(top, #ffffff, #FFF8DC)
+    background-image: linear-gradient(top, #ffffff, #FFF8DC)
+    text-decoration: none
+  a:hover
+    color: #FFF8DC
+    border: .1em groove transparent
+    padding: 6px 20px
+    text-transform: lowercase
+    -webkit-transition: all 0.4s ease
+    -moz-transition: all 0.4s ease
+    -o-transition: all 0.4s ease
+    transition: all 0.4s ease
+    vertical-align: middle
+    text-decoration: none
+.nav
+  a:hover
+    background-color: #761149
+    background-image: -moz-linear-gradient(top, #761149, #761149)
+    background-image: -ms-linear-gradient(top, #761149, #761149)
+    background-image: -o-linear-gradient(top, #761149, #761149)
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#761149), to(#761149))
+    background-image: -webkit-linear-gradient(top, #761149, #761149)
+    background-image: linear-gradient(top, #761149, #761149)
+    padding: 6px 20px
+    text-transform: lowercase
+    -webkit-transition: all 0.4s ease
+    -moz-transition: all 0.4s ease
+    -o-transition: all 0.4s ease
+    transition: all 0.4s ease
+    vertical-align: middle
+    text-decoration: none
+.navbar .nav > li > a
+  float: none
+  padding: 10px 15px 10px
+  color: #777777
+  text-decoration: none
+  text-shadow: 0 0px 0 red
+
+.navbar .nav > li > a
+  &:focus, &:hover
+    background-color: transparent
+    color: white
+    text-decoration: none
+
+.winebutton
+  background: #761149
+  color: white
+  letter-spacing: 1px
+  a
+    color: #F7F7F7
+  a:hover
+    color: #761149
+  &:hover
+    background: #F7F7F7
+    color: #761149
+    text-decoration: none
