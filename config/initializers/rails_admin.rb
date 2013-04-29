@@ -39,7 +39,7 @@ RailsAdmin.config do |config|
         help 'required'
       end
       field :photo do
-        help 'exact dimensions of 710px wide and 355px high png with transparency'
+        help 'exact dimensions of 692px wide and 328px high png with transparency'
       end
     end
 
