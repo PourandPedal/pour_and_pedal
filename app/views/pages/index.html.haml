@@ -1,10 +1,3 @@
-.center.hero-unit
-  .span3
-    %h3.pull-left
-      welcome to
-  .clearfix
-  %h1
-    pour & pedal
 #myCarousel.carousel.slide
   .carousel-inner
     - if home_images[0]
@@ -23,29 +16,24 @@
   %a.carousel-control.left{"data-slide" => "prev", :href => "#myCarousel"} &lsaquo;
   %a.carousel-control.right{"data-slide" => "next", :href => "#myCarousel"} &rsaquo;
 #cta
-  = link_to "find a ride now!", events_path, class: "mybtn btn btn-success"
-%hr
-.span3
+  = link_to "FIND A RIDE NOW!", events_path, class: "mybtn btn btn-success"
 
-.explainer
+#hometext
   %p
-    Located in the heart of New Jersey and Long Island New York’s wine countries, Pour & Pedal Bike Tours are a one-day journey through the beautiful countryside and vineyards.  Our tour travels through the breathtaking landscapes with ventures in Wine Country, including farms, gardens, and vineyards.
-  .clearfix
+    Located in the heart of New Jersey and Long Island, New Yorks's wine countries.
+    Pour & Pedal Bike Tours are a one-day journey through the beautfiul countryside and vineyards.
+    Our tour travels through the breaktaking landscapes with ventures in Wine Country, including farms, gardens and vineyards.
+  %br
+  %p.headlinetext
+    Don’t know where to visit while in the area?
   %p
-    = link_to "Read More", '#', id: 'readmore', class: 'pull-right'
-    = link_to "Read Less", '#', id: 'readless', class: 'pull-right'
-  #readmoretext
-    %p.lead
-      Don’t know where to visit while in the area?
-    %p
-      Don’t worry!  Our tour guides will cycle you through the heart of the countryside and reveal the hidden gems only the locals know about.  In addition, we have partnered with the best wineries and vendors in the area, providing you with the highest quality available, along with our exceptional service.
-    %p.lead
-      Want to learn about wine?
-    %p
-      Our tour includes a 45-minute exploration of one of the local wineries and vineyards.  You’ll learn the process of how wine is made while you walk through the vineyard, production facility, and tank room.  The tour ends in our favorite spot: the tasting room, where the pouring begins!
-    %p.lead
-      Want to get a little exercise or love bicycle riding?
-    %p
-      You won’t need to worry about summer traffic or refilling for gas.  The 13 to 16-mile excursion will allow you to get your daily exercise.  Our company provides top of the line comfort bicycles and all necessary equipment at no additional cost.  Our bicycles are equipped with baskets so you can safely transport any purchases during the tour.  Feel free to bring your own bicycles and equipment if you feel more comfortable.  Select dates allow us to ride through the vineyard – something you can only experience with Pour and Pedal Bike Tours!!!
-%hr
+    Don’t worry!  Our tour guides will cycle you through the heart of the countryside and reveal the hidden gems only the locals know about.  In addition, we have partnered with the best wineries and vendors in the area, providing you with the highest quality available, along with our exceptional service.
+  %p.headlinetext
+    Want to learn about wine?
+  %p
+    Our tour includes a 45-minute exploration of one of the local wineries and vineyards.  You’ll learn the process of how wine is made while you walk through the vineyard, production facility, and tank room.  The tour ends in our favorite spot: the tasting room, where the pouring begins!
+  %p.headlinetext
+    Want to get a little exercise or love bicycle riding?
+  %p
+    You won’t need to worry about summer traffic or refilling for gas.  The 13 to 16-mile excursion will allow you to get your daily exercise.  Our company provides top of the line comfort bicycles and all necessary equipment at no additional cost.  Our bicycles are equipped with baskets so you can safely transport any purchases during the tour.  Feel free to bring your own bicycles and equipment if you feel more comfortable.  Select dates allow us to ride through the vineyard – something you can only experience with Pour and Pedal Bike Tours!!!
 

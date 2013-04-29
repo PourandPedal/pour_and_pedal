@@ -62,17 +62,6 @@ ActiveRecord::Schema.define(:version => 20130412224718) do
     t.text     "notes"
   end
 
-  create_table "dates", :force => true do |t|
-    t.string   "title"
-    t.datetime "date"
-    t.decimal  "price"
-    t.integer  "spots_available"
-    t.integer  "tickets_sold"
-    t.integer  "event_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-  end
-
   create_table "events", :force => true do |t|
     t.string   "title"
     t.text     "description"

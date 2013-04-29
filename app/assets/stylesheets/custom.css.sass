@@ -54,7 +54,7 @@ body
     height: 12px
 
   padding-top: 60px
-  background: url('wine-bike-smaller.png') center bottom no-repeat fixed, url('texture.jpg') no-repeat center center fixed
+  background: url('home_texture.jpg') repeat-x center top
   -webkit-background-size: auto, cover
   -moz-background-size: auto, cover
   -o-background-size: auto, cover
@@ -72,6 +72,9 @@ textarea
   display: none
 #readless
   display: none
+
+#hometext
+  margin-top: 48px
 
 .smaller
   font-size: 1.3em
@@ -167,7 +170,18 @@ table
   margin-top: 18px
 
 .wine
-  color: #6f123e
+  color: #761149
+
+.carousel-control
+  background: #761149
+  opacity: 1.0
+
+.headlinetext
+  color: #761149
+  font-family: 'Rokkitt', serif
+  font-weight: 400
+  font-style: normal
+  font-size: 24px
 
 #myPhotoCarousel
   height: 600px
@@ -201,6 +215,7 @@ table
   margin-right: auto
   width: 326px
   color: #fafae2
+  margin-top: 62px
 
 .mybtn
   line-height: 50px
@@ -244,9 +259,11 @@ table
 
 .btn-success
   background: url(green-go-button.png)
-  -moz-box-shadow: 2px 3px 5px #6f123e
-  -webkit-box-shadow: 2px 3px 5px #6f123e
-  box-shadow: 2px 3px 5px #6f123e
+  font-family: 'Rokkitt', serif
+  font-weight: 400
+  font-style: normal
+  color: white
+  letter-spacing: 2px
 
 
 
@@ -285,9 +302,7 @@ p
   margin-top: 9px
 
 .navbar-fixed-top
-  -moz-box-shadow: 0px 3px 5px #6f123e
-  -webkit-box-shadow: 0px 3px 5px #6f123e
-  box-shadow: 0px 3px 5px #6f123e
+  border-bottom: 1px solid #6f123e
 
 small
   margin-top: 18px
@@ -349,7 +364,7 @@ small
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
 
 footer
-  position: fixed
+  position: relative
   background-color: #6f123e
   width: 100%
   bottom: 0
