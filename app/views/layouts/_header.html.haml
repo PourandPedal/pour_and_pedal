@@ -4,7 +4,7 @@
       = link_to image_tag('pourpedal_header_logo_small.png'), root_path, id: "logo"
       %nav
 
-        %ul.nav.pull-right
+        %ul.nav
           %li{:class => "#{'active' if current_page?(about_path)}"}=link_to "about", about_path
           %li{:class => "#{'active' if current_page?(faq_path)}"}=link_to "faqs", faq_path
           %li{:class => "#{'active' if current_page?(photos_path)}"}=link_to "gallery", photos_path
@@ -14,12 +14,11 @@
           %li{:class => "#{'active' if current_page?(new_contact_path)}"}=link_to "contact", new_contact_path
           %li
             %a{"data-toggle" => "modal", :href => "#myreservation", :role => "button"} my reservation
-          .btn
-            %li
-              = link_to "gifts", new_gift_certificate_path
-          - if logged_in?
-            %li
-              = link_to "Sign out", logout_path
+        .btn.winebutton
+          = link_to "gifts", new_gift_certificate_path
+        - if logged_in?
+          %li
+            = link_to "Sign out", logout_path
   .clearfix
 #myreservation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header

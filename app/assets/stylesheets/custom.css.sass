@@ -79,6 +79,9 @@ textarea
 .smaller
   font-size: 1.3em
 
+.wine
+  background-color: #761149
+
 .flash
   text-align: center
   padding-top: 18px
@@ -209,6 +212,9 @@ table
   *background-color: #6f123e
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
   filter: progid:DXImageTransform.Microsoft.gradient(enabled=false)
+
+.btn-wine
+  background-color: #761149
 
 #cta
   margin-left: auto
@@ -372,46 +378,6 @@ footer
   margin-top: 36px
   .padright
     margin-right: 36px
-  ul
-    padding-top: 46px
-    padding-right: 72px
-  a
-    color: #FFF8DC
-    border: .1em groove transparent
-    -moz-border-radius: 1.5em
-    -ms-border-radius: 1.5em
-    -o-border-radius: 1.5em
-    -webkit-border-radius: 1.5em
-    border-radius: 1.5em
-    font-size: 1.3em
-    padding: 6px 20px
-    text-transform: lowercase
-    -webkit-transition: all 0.4s ease
-    -moz-transition: all 0.4s ease
-    -o-transition: all 0.4s ease
-    transition: all 0.4s ease
-    vertical-align: middle
-    text-decoration: none
-  a:hover
-    color: #a8708b
-    border: .1em solid #e5e5e5
-    background-color: #FFF8DC
-    background-image: -moz-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: -ms-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: -o-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#FFF8DC))
-    background-image: -webkit-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: linear-gradient(top, #ffffff, #FFF8DC)
-    text-decoration: none
-  small
-    padding-top: 45px
-    margin-left: 18px
-  ul
-    float: right
-    list-style: none
-  ul li
-    float: left
-    margin-left: 10px
 .active
   a
     color: #a8708b
@@ -437,14 +403,13 @@ footer
     text-decoration: none
 .nav
   a:hover
-    color: #6f123e
-    background-color: #6f123e
-    background-image: -moz-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: -ms-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: -o-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#FFF8DC))
-    background-image: -webkit-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: linear-gradient(top, #ffffff, #FFF8DC)
+    background-color: #761149
+    background-image: -moz-linear-gradient(top, #761149, #761149)
+    background-image: -ms-linear-gradient(top, #761149, #761149)
+    background-image: -o-linear-gradient(top, #761149, #761149)
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#761149), to(#761149))
+    background-image: -webkit-linear-gradient(top, #761149, #761149)
+    background-image: linear-gradient(top, #761149, #761149)
     padding: 6px 20px
     text-transform: lowercase
     -webkit-transition: all 0.4s ease
@@ -452,4 +417,29 @@ footer
     -o-transition: all 0.4s ease
     transition: all 0.4s ease
     vertical-align: middle
+    text-decoration: none
+.navbar .nav > li > a
+  float: none
+  padding: 10px 15px 10px
+  color: #777777
+  text-decoration: none
+  text-shadow: 0 0px 0 red
+
+.navbar .nav > li > a
+  &:focus, &:hover
+    background-color: transparent
+    color: white
+    text-decoration: none
+
+.winebutton
+  background: #761149
+  color: white
+  letter-spacing: 1px
+  a
+    color: #F7F7F7
+  a:hover
+    color: #761149
+  &:hover
+    background: #F7F7F7
+    color: #761149
     text-decoration: none
