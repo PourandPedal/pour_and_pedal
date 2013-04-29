@@ -3,6 +3,8 @@ class GiftCertificatesController < ApplicationController
   expose(:gift_certificate)
   expose(:client)
 
+  layout 'pages'
+
   def create
     client = Client.create(params[:client])
     session[:client_id] = client.id
