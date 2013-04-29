@@ -1,34 +1,34 @@
 %h1.headline
   Congratulations!
-.explainer
-  %p
-    You're reserved for #{@trip.event.title}! We're so happy that you'll be coming along.
-  %p
-    Be sure to take note of the following, especially your confirmation number. If you need to inquire about your reservation, you'll need your confirmation number. A copy of this reservation will be emailed to you as well!
+.headline.paddtop
+%p
+  You're reserved for #{@trip.event.title}! We're so happy that you'll be coming along.
+%p
+  Be sure to take note of the following, especially your confirmation number. If you need to inquire about your reservation, you'll need your confirmation number. A copy of this reservation will be emailed to you as well!
 
-  %h2 Reservation Summary
+%h2 Reservation Summary
 
-  %p
-    Confirmation Number: #{@newclient.confirmation.confirmation_number}
-  %p
-    Email: #{@newclient.email}
+%p
+  Confirmation Number: #{@newclient.confirmation.confirmation_number}
+%p
+  Email: #{@newclient.email}
 
-  %ul
-    %li
-      #{@newclient.first_name} #{@newclient.last_name}
-    %li
-      = @trip.event.title
-    %li
-      = @trip.date.to_formatted_s(:long_ordinal)
-    %li
-      #{pluralize(@quantity, 'ticket')}
-    %li
-      Total amount paid #{number_to_currency(@newclient.amount_paid)}
-    %li
-      Directions:
-      %p
-        = @trip.event.directions
-  %p
-    Share the fun! Like us on Facebook!
-  .fb-like.padfb{"data-font" => "lucida grande", "data-href" => "http://pourandpedal.com", "data-layout" => "button_count", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
+%ul
+  %li
+    #{@newclient.first_name} #{@newclient.last_name}
+  %li
+    = @trip.event.title
+  %li
+    = @trip.date.to_formatted_s(:long_ordinal)
+  %li
+    #{pluralize(@quantity, 'ticket')}
+  %li
+    Total amount paid #{number_to_currency(@newclient.amount_paid)}
+  %li
+    Directions:
+    %p
+      = @trip.event.directions
+%p
+  Share the fun! Like us on Facebook!
+.fb-like.padfb{"data-font" => "lucida grande", "data-href" => "http://pourandpedal.com", "data-layout" => "button_count", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
 %hr

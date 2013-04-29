@@ -1,34 +1,9 @@
 %h1.headline
   Congratulations!
-.explainer
-  %p
-    You've purchased and sent #{pluralize(@cert.number_purchased, 'gift certificate')} for #{@cert.recipient_first_name} #{@cert.recipient_last_name} to #{@cert.recipient_email}.
-  / %p
-  /   Be sure to take note of the following, especially your confirmation number. If you need to inquire about your reservation, you'll need your confirmation number. A copy of this reservation will be emailed to you as well!
-
-  / %h2 Reservation Summary
-
-  / %p
-  /   Confirmation Number: #{@newclient.confirmation.confirmation_number}
-  / %p
-  /   Email: #{@newclient.email}
-
-  / %ul
-  /   %li
-  /     #{@newclient.first_name} #{@newclient.last_name}
-  /   %li
-  /     = @trip.event.title
-  /   %li
-  /     = @trip.date.to_formatted_s(:long_ordinal)
-  /   %li
-  /     #{pluralize(@quantity, 'ticket')}
-  /   %li
-  /     Total amount paid #{number_to_currency(@newclient.amount_paid)}
-  /   %li
-  /     Directions:
-  /     %p
-  /       = @trip.event.directions
-  %p
-    Share the fun! Like us on Facebook!
-  .fb-like.padfb{"data-font" => "lucida grande", "data-href" => "http://pourandpedal.com", "data-layout" => "button_count", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
+.headline.paddtop
+%p
+  You've purchased and sent #{pluralize(@cert.number_purchased, 'gift certificate')} for #{@cert.recipient_first_name} #{@cert.recipient_last_name} to #{@cert.recipient_email}.
+%p
+  Share the fun! Like us on Facebook!
+.fb-like.padfb{"data-font" => "lucida grande", "data-href" => "http://pourandpedal.com", "data-layout" => "button_count", "data-send" => "true", "data-show-faces" => "true", "data-width" => "450"}
 %hr

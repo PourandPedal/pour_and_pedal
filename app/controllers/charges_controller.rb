@@ -1,5 +1,7 @@
 class ChargesController < ApplicationController
 
+  layout 'pages'
+
   def requesting
     @trip = Trip.find(params[:trip_id])
   end
