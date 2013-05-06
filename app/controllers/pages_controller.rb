@@ -2,6 +2,8 @@ class PagesController < ApplicationController
 
   expose(:home_image)
   expose(:home_images)
+  expose(:home_text)
+  expose(:home_texts)
   expose(:events)
 
   def index

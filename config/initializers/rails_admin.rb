@@ -50,6 +50,25 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model 'HomeText' do
+    object_label_method do
+      :content
+    end
+    list do
+      field :content
+    end
+
+    edit do
+      field :content do
+        help 'must be in HTML'
+      end
+    end
+
+    show do
+      field :content
+    end
+  end
+
   config.model 'User' do
     object_label_method do
       :name
