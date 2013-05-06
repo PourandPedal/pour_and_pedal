@@ -51,20 +51,22 @@ RailsAdmin.config do |config|
   end
 
   config.model 'HomeText' do
-    object_label_method do
-      :content
-    end
     list do
+      field :visible
       field :content
     end
 
     edit do
+      field :visible do
+        help 'content visible on home page when checked'
+      end
       field :content do
         help 'must be in HTML'
       end
     end
 
     show do
+      field :visible
       field :content
     end
   end

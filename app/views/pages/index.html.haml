@@ -20,4 +20,5 @@
 
 #hometext
   - home_texts.each do |text|
-    = text.content.html_safe
+    - if text.visible?
+      = text.content.html_safe
