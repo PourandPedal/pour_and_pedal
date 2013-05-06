@@ -29,6 +29,12 @@ html, body
 html
   color: #3f3d32
 body
+  a
+    color: #761149
+    text-decoration: none
+    &:hover, &:focus
+      color: #761149
+      text-decoration: underline
   h1
     font-family: 'Rokkitt', serif
     font-weight: 700
@@ -392,16 +398,12 @@ footer
     margin-right: 36px
 .active
   a
-    color: #a8708b
-    border: .1em solid #e5e5e5
-    background-color: #FFF8DC
-    background-image: -moz-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: -ms-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: -o-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#FFF8DC))
-    background-image: -webkit-linear-gradient(top, #ffffff, #FFF8DC)
-    background-image: linear-gradient(top, #ffffff, #FFF8DC)
+    border-bottom: 5px solid #761149
+    padding: 6px 20px
+    text-transform: lowercase
+    vertical-align: middle
     text-decoration: none
+    background-color: #f9f9f9
   a:hover
     color: #FFF8DC
     border: .1em groove transparent
@@ -413,15 +415,16 @@ footer
     transition: all 0.4s ease
     vertical-align: middle
     text-decoration: none
+
+.navbar .nav > .active > a
+  color: #761149
+  text-decoration: none
+  &:hover, &:focus
+    color: #761149
+    text-decoration: none
 .nav
   a:hover
-    background-color: #761149
-    background-image: -moz-linear-gradient(top, #761149, #761149)
-    background-image: -ms-linear-gradient(top, #761149, #761149)
-    background-image: -o-linear-gradient(top, #761149, #761149)
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#761149), to(#761149))
-    background-image: -webkit-linear-gradient(top, #761149, #761149)
-    background-image: linear-gradient(top, #761149, #761149)
+    border-bottom: 5px solid #761149
     padding: 6px 20px
     text-transform: lowercase
     -webkit-transition: all 0.4s ease
@@ -433,14 +436,14 @@ footer
 .navbar .nav > li > a
   float: none
   padding: 10px 15px 10px
-  color: #777777
+  color: #3f3d32
   text-decoration: none
   text-shadow: 0 0px 0 red
 
 .navbar .nav > li > a
   &:focus, &:hover
     background-color: transparent
-    color: white
+    color: #761149
     text-decoration: none
 
 .winebutton
