@@ -1,0 +1,10 @@
+- @alerts = Alert.all
+- @alerts.each do |alert|
+  - if alert.show_alert?
+    .explainerred
+      %h2
+        = alert.headline
+      %p
+        = alert.content
+      %p
+        last updated #{time_ago_in_words(alert.updated_at)} ago
