@@ -4,6 +4,7 @@
   = trip.date.to_formatted_s(:long_ordinal)
 %ul
   - trip.clients.each do |client|
+    - client_compare = 'nothing'
     - if client == client_compare
     -else
       - client_compare = client
