@@ -17,7 +17,7 @@ class TripsController < ApplicationController
   def index
     if current_user && current_user.admin?
     else
-      redirect_to root_path, notice: 'You must be logged in to see page!!'
+      redirect_to root_path, notice: 'You must be logged in to see that page!'
     end
   end
 
