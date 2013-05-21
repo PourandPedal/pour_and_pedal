@@ -1,10 +1,10 @@
+- client_id = 0
 %h1
   #{trip.try(:title)}, #{trip.event.try(:title)}
 %p
   = trip.date.to_formatted_s(:long_ordinal)
 %ul
   - trip.clients.each do |client|
-    - client_id = 0
     - if client.id == client_id
     -else
       - client_id = client.id
