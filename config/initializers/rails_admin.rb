@@ -21,6 +21,12 @@ RailsAdmin.config do |config|
   # If you want to track changes on your models:
   config.audit_with :paper_trail, User
 
+  config.navigation_static_links = {
+  'Trips' => 'http://pourandpedal.com/trips'
+  }
+
+  config.navigation_static_label = "Summaries"
+
   config.model 'HomeImage' do
     object_label_method do
       :title

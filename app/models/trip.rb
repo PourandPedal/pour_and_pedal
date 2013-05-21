@@ -8,4 +8,15 @@ class Trip < ActiveRecord::Base
   validates_presence_of :title, :date, :price
 
   has_paper_trail
+
+  after_save :set_summary_url
+
+  def set_summary_url
+    if self.summary.nil?
+      self.summary = "http://pourandpedal.com/trips/#{self.id}"
+      self.save
+    else
+    end
+  end
+
 end
