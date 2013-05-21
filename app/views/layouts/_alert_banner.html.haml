@@ -1,10 +1,12 @@
+.clearfix
 - @alerts = Alert.all
 - @alerts.each do |alert|
   - if alert.show_alert?
     .explainerred
-      %h2
+      %h3.middling
         = alert.headline
-      %p
+      %p.bodyjustify
         = alert.content
-      %p
+      %p.right
         last updated #{time_ago_in_words(alert.updated_at)} ago
+.clearfix
