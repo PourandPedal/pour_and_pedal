@@ -4,10 +4,9 @@
   = trip.date.to_formatted_s(:long_ordinal)
 %ul
   - trip.clients.each do |client|
-    - client_compare = 'nothing'
-    - if client == client_compare
+    - if client_id && client.id == client_id
     -else
-      - client_compare = client
+      - client_id = client.id
       %li
         #{client.last_name}, #{client.first_name}
         %p
